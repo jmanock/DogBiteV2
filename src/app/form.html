@@ -1,0 +1,18 @@
+<form action="" name='DogForm' nonvalidate>
+  <section ng-hide='name' class='name'>
+    <input type='text' class='dogname' name='dName' placeholder="What's your DOG'S name?" ng-model='DogName.name' autofocus required>
+    <input type='button' id='next'value='Next' ng-click='' ng-disabled='DogForm.dName.$invalid' ng-enter=''>
+  </section>
+
+  <section>
+    <label for="gender">Is {{DogName.name | uppercase}}:</label>
+    <input type="radio" value='Female' name='gender' ng-model='DogName.gender'>Female
+    <input type='radio' value='Male' name='gender' ng-model='DogName.gender'>Male
+  </section>
+
+  <section class='dogInfo'>
+    <ul>
+      <li>How OLD is {{DogName.name | uppercase}} <button title='If {{DogName.name | uppercase}} is less than 1 enter 1' disabled></button>
+        <input type='number' min='1' max='20' ng-model='DogName.age' required>
+      </li>
+</form>

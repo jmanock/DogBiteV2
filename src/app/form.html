@@ -11,11 +11,61 @@
   </section>
 
   <section class='dogInfo'>
-    <ul>
-      <li>How OLD is {{DogName.name | uppercase}} <button title='If {{DogName.name | uppercase}} is less than 1 enter 1' disabled></button>
-        <input type='number' min='1' max='20' ng-model='DogName.age' required>
-      </li>
-    </ul>
-    <!-- <fountain-states></fountain-states>
-    <fountain-breed></fountain-breed> -->
+    <div class='question'>
+      <label>How OLD is {{DogName.name | uppercase}}: <i title='If {{DogName.name | uppercase}} is less than 1 enter 1' class='fa fa-question' disabled></i></label>
+      <input type='number' min='1' max='30' ng-model='DogName.age' required>
+    </div>
+
+    <div class='question'>
+      <label>What COLOR is {{DogName.name | uppercase}}:</label>
+      <input type='text' name='Color' ng-model='DogName.color' required>
+
+    <div class='question'>
+      <label>What BREED is {{DogName.name | uppercase}}:</label>
+      <fountain-breeds></fountain-breeds>
+    </div>
+
+    <div class='question'>
+      <label>How much does {{DogName.name | uppercase}} weight: </label>
+      <input type='number' min='1' ng-model='DogName.weight' name='weight' required>
+    </div>
+
+    <div class='question'>
+      <label>Where does {{DogName.name | uppercase}} go to the BATHROOM: </label>
+      <select ng-model='DogName.bathroom' name='bathroom' required>
+        <option value='' disabled selected>Please Choose...</option>
+        <option value='Inside'>Inside completeley enclosed fenced area</option>
+        <option value='Underground'>Undergroud electric dog containment system</option>
+        <option value='Outside'>Outside loose in unfenced yard</option>
+        <option value='Permanently'>Permanently Tied/Teathered Outside</option>
+        <option value='Leash'>Leash Walked</option>
+      </select>
+    </div>
+
+    <div class='question'>
+      <label>Where does {{DogName.name | uppercase}} SLEEP:</label>
+      <select ng-model='DogName.sleep' name='sleep' required>
+        <option value='' disabled selected> Please Choose...</option>
+        <option value='Inside'>Inside</option>
+        <option value='Garage'>Garage</option>
+        <option value='Loose'>Outside loose in fenced yard</option>
+        <option value='Without'>Outside without any restraints</option>
+        <option value='Permanent'>Permanent Outside</option>
+        <option value='Tied'>Tied Out</option>
+      </select>
+    </div>
+
+    <div class='question'>
+      <label>Do you take {{DogName | uppercase}} to work regularly:</label>
+      <input type='radio' value='Yes' ng-model='DogName.takeWork' name='takeWork'>Yes
+      <input type='radio' value='No' ng-model='DogName.takeWork' name='takeWork'>No
+    </div>
+
+    <div class='question'>
+      <label>Is {{DogName | uppercase}} involved or integral in your work as a Therapist, Teacher, Counselor, or other similar:</label>
+      <input type='radio' name='involvedWork' ng-model='DogName.involvedWork' value='Yes'>Yes
+      <input type='radio' name='involvedWork' ng-model='DogName.involvedWork' value='No'>No
+    </div>
+
+
 </form>

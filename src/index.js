@@ -7,6 +7,8 @@ var header = require('./app/header');
 var title = require('./app/title');
 var footer = require('./app/footer');
 var form = require('./app/form');
+var states = require('./app/states');
+var breeds = require('./app/breeds');
 
 require('./index.css');
 
@@ -16,4 +18,6 @@ angular
   .component('fountainHeader', header)
   .component('fountainTitle', title)
   .component('fountainFooter', footer)
-  .component('fountainForm', form);
+  .component('fountainForm', form)
+  .component('fountainStates', states)
+  .component('fountainBreeds', breeds);

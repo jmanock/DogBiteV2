@@ -56,15 +56,58 @@
     </div>
 
     <div class='question'>
-      <label>Do you take {{DogName | uppercase}} to work regularly:</label>
+      <label>Do you take {{DogName.name | uppercase}} to work regularly:</label>
       <input type='radio' value='Yes' ng-model='DogName.takeWork' name='takeWork'>Yes
       <input type='radio' value='No' ng-model='DogName.takeWork' name='takeWork'>No
     </div>
 
     <div class='question'>
-      <label>Is {{DogName | uppercase}} involved or integral in your work as a Therapist, Teacher, Counselor, or other similar:</label>
+      <label>Is {{DogName.name | uppercase}} involved or integral in your work as a Therapist, Teacher, Counselor, or other similar:</label>
       <input type='radio' name='involvedWork' ng-model='DogName.involvedWork' value='Yes'>Yes
       <input type='radio' name='involvedWork' ng-model='DogName.involvedWork' value='No'>No
+    </div>
+
+    <div class='question'>
+      <label>Is {{DogName.name | uppercase}} current on licenses, vaccinations and other such requirements in your area:</label>
+      <input type='radio' name='vaccinations' value='Yes' ng-model='DogName.vaccinations'>Yes
+      <input type='radio' name='vaccinations' value='No' ng-model=DogName.vaccinations>No
+    </div>
+
+    <div class='questions'>
+      <label>Is {{DogName.name | uppercase}} {{DogName.genderInfo}}:</label>
+      <input type='radio' name='reproductive' ng-model='DogName.reproductive' value='Yes'>Yes
+      <input type='radio' name='reproductive' ng-model='DogName.reproductive' value='No'>No
+    </div>
+
+    <div class='questions'>
+      <label>What type of training or work does {{DogName.name | uppercase}} have:</label>
+      <select name="training" ng-model='DogName.training'>
+        <option value="" disabled selected>Please Choose...</option>
+        <option value="None">None or Basic</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+        <option value="Therapy">Therapy Dog</option>
+        <option value="Hunting">Hunting, Gun, Sporting off leash, Farm, Hearding</option>
+        <option value="war">War or Police Service dog, Professionally trained Personal Protection or Professional Trained Guard Dog</option>
+      </select>
+    </div>
+
+    <div class='questions'>
+      <label>Do you take {{DogName.name | uppercase}} to work regularly:</label>
+      <input type='radio' name='workRegulary' ng-model='DogName.regulary' value='Yes'>Yes
+      <input type='radio' name='workRegulary' ng-model='DogName.regulary' value='No'>No
+    </div>
+
+    <div class='questions'>
+      <label>Is {{DogName.name | uppercase}} involved or integral in your work at a Therapist, Teacher, Counselor, or other similar:</label>
+      <input type='radio' name='involved' ng-model='DogName.involved' value='Yes'>Yes
+      <input type='radio' name='involved' ng-model='DogName.involved' value='No'>No
+    </div>
+
+    <div class='question'>
+      <label>Do you take {{DogName.name | uppercase}} to off leash dog parks:</label>
+      <input type='radio' value='Yes' ng-model='DogName.parks' name='parks'>Yes
+      <input type='radio' value='No' ng-model='DogName.parks' name='parks'>No
     </div>
 
 

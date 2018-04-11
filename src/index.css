@@ -28,3 +28,13 @@ body, h1, h2, h3 {
   margin-left:25%;
   margin-top:15%;
 }
+
+.navbar{
+  background-color:#D8EEFB !important;
+}
+.navbar-brand{
+  color:#333 !important;
+}
+.nav-item{
+  color:#333 !important;
+}

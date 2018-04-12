@@ -1,34 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700');
-html, body, #root {
-  margin: 0;
-  height: 100%;
-  font-family: 'Montserrat','Open Sans', sans-serif;
+body{
+  font-family:'Montserrat';
+  margin:0;
+  height:100%;
+  font-weight:300;
+  /* background-color:#DBDBD4; */
+  background-color:#DBDEE1;
 }
-
-body, h1, h2, h3 {
-  font-weight: 300
+.navbar{
+  background-color:#d8eefb !important;
 }
-
-.main-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+.navbar-brand{
+  color:#333 !important;
 }
-.main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.nav-item{
+  color:#333 !important;
 }
-
-/* .dogname{
-  width:500px;
-  height:70px;
-  font-size:1.5em;
-  border-radius:10px;
-  margin-left:25%;
-  margin-top:15%;
-} */
-
 .personInfo{
   position:fixed;
   top:50%;
@@ -40,19 +27,11 @@ body, h1, h2, h3 {
   width:400px;
   height:40px;
 }
-.personInfo label{
-  margin-left:-50px;
-}
-
-.navbar{
-  background-color:#D8EEFB !important;
-}
-.navbar-brand{
-  color:#333 !important;
-}
-.nav-item{
-  color:#333 !important;
-}
-#next{
+input[type='button']:enabled{
+  background-color:orange;
   cursor:pointer;
+}
+input[type='button']:disabled{
+  
+
 }

@@ -20,13 +20,21 @@ body, h1, h2, h3 {
   flex-direction: column;
 }
 
-.dogname{
+/* .dogname{
   width:500px;
   height:70px;
   font-size:1.5em;
   border-radius:10px;
   margin-left:25%;
   margin-top:15%;
+} */
+
+.personInfo{
+  position:fixed;
+  top:50%;
+  left:50%;
+  margin-top:-100px;
+  margin-left:-150px;
 }
 
 .navbar{

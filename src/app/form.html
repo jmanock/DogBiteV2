@@ -1,5 +1,5 @@
 <form action="" name='DogForm' nonvalidate>
-  <!-- <section class='personInfo'>
+  <section class='personInfo' ng-hide='personInfo'>
     <div class='question'>
       <input type='text' class='dogname' name='dName' placeholder="What's your Dog's Name?" ng-model='DogName.name' required autofocus>
     </div>
@@ -9,14 +9,14 @@
     </div>
 
     <div class='question'>
-      <label>State:</label>
+      <label>State:<span title="All Dogs must reside in the same state. If you have dogs that reside in different states please complete seprate quotes" class='fa fa-question'></span></label>
       <fountain-states></fountain-states>
     </div>
 
     <input type='button' id='next' value='Next' ng-click='' ng-disabled='DogForm.dName.$invalid || DogForm.email.$invalid || DogForm.states.$invalid' ng-enter=''>
-  </section> -->
+  </section>
 
-  <!-- <section class='dogInfo'>
+  <section class='dogInfo' ng-show='dogInfo'>
     <div class='question'>
       <label>What BREED is {{DogName.name | uppercase}}:</label>
       <fountain-breeds></fountain-breeds>
@@ -69,7 +69,7 @@
     </div>
 
     <div class='question'>
-      <label>Is {{DogName.name | uppercase}} current on licenses, vaccinations and other such requirments in your area:</label>
+      <label>Is {{DogName.name | uppercase}} current on licenses, vaccinations and other such requirments in your area:<span title="These are laws where you live that require certain vaccinations, tags, or registration. If compliance depends of this insurance check yes." class='fa fa-question'></span></label>
       <input type='radio' name='vaccinations' value='Yes' ng-model='DogName.vaccinations' required>Yes
       <input type='radio' name='vaccinations' value='No' ng-model='DogName.vaccinations' required>No
     </div>
@@ -91,7 +91,7 @@
     </div>
 
     <div class='question'>
-      <label>What type of training or work does {{DogName.name | uppercase}} have:</label>
+      <label>What type of training or work does {{DogName.name | uppercase}} have:<span title="Therapy Dog, are dogs that do volunteer visits at hospitals, class rooms or other facilities the handler is not paid and does not work at the facility." class='fa fa-question'></span></label>
       <select name='training' ng-model='DogName.training' required>
         <option value='' selected disabled>Please Choose...</option>
         <option value='None'>None</option>
@@ -102,9 +102,9 @@
         <option value='War'>War or Police Service dog, Professionally trained Personal Protection or Professional Trained Guard Dog</option>
       </select>
     </div>
-  </section> -->
+  </section>
 
-  <section class='homeInfo'>
+  <section class='homeInfo' ng-show='homeInfo'>
     <div class='question'>
       <label>What area do you live in:</label>
       <input type='radio' name='area' value='Country' ng-model='DogName.area' required>Country and/or your dog travels with you
@@ -165,6 +165,10 @@
       <label>Is {{DogName.name | uppercase}} involved or integral in your work as a Therapist, Teacher, Counselor, or other similar:</label>
       <input type='radio' name='involvedWork' ng-model='DogName.involvedWork' value='Yes' required>Yes
       <input type='radio' name='involvedWork' ng-model='DogName.involvedWork' value='No' required>No
+      <div ng-if="DogName.involvedWork === 'Yes' ? true : false">
+        <label>What is your occupation:</label>
+        <input type='text' name='occupation' ng-model='DogName.occupation' required>
+      </div>
     </div>
 
     <div class='question'>
@@ -177,6 +181,14 @@
         <option value='Injured More'>Injured more than one animal</option>
         <option value='Killed More'>Killed more than one animal</option>
       </select>
+      <div ng-if="DogName.animalInjured === 'Injured More' || DogName.animalInjured === 'Killed More' ? true : false">
+        <label>Please describe each event in detail:</label>
+        <textarea name="describeAnimalInjured" id="" cols="30" rows="10" ng-model='DogName.describeAnimalInjured'></textarea>
+        <label>What fines, restrictions, specific requirements were mandated as a result of each event:</label>
+        <textarea name="finesAnimalInjured" id="" cols="30" rows="10" ng-model='DogName.finesAnimalInjured'></textarea>
+        <label>What changes have you made to prevent similar events:</label>
+        <textarea name="changesAnimalInjured" id="" cols="30" rows="10" ng-model='DogName.changesAnimalInjured'></textarea>
+      </div>
     </div>
 
     <div class='question'>
@@ -193,10 +205,18 @@
         <option value='Child More'>Injured a child more than once</option>
         <option value='Adult More'>Injured an adult more than once</option>
       </select>
+      <div ng-if="DogName.humanInjury === 'Child Medical Attention' || DogName.humanInjury === 'Adult Medical Attention' ? true : false">
+        <label>Please describe each event in detail:</label>
+        <textarea name="describeEvent" id="" cols="30" rows="10" ng-model='DogName.describeEventHumanInjury'></textarea>
+        <label>What fines, restrictions, specific requirements were mandated as a results of each event:</label>
+        <textarea name="finesEvent" id="" cols="30" rows="10" ng-model='DogName.finesEventHumanInjury'></textarea>
+        <label>What changes have you made to prevent similar events:</label>
+        <textarea name="changes" id="" cols="30" rows="10" ng-model='DogName.changes'></textarea>
+      </dvi>
     </div>
 
     <div class='question'>
-      <label>Has {{DogName.name | uppercase}} ever been involved with Animal Services:</label>
+      <label>Has {{DogName.name | uppercase}} ever been involved with Animal Services:<span title="Such as Animal Control, Dog Catcher, Law Enforcement, Dog Warden, Officer, City, Town or any other Government Official." class='fa fa-question'></span></label>
       <select ng-model='DogName.animalServices' name='animalServices' required>
         <option value='' selected disabled>Please Choose...</option>
         <option value='Never'>Never</option>
@@ -210,10 +230,14 @@
       <label>Is {{DogName.name | uppercase}} in a foster arrangement where the owner has been deployed:</label>
       <input type='radio' name='deployed' ng-model='DogName.deployed' value='No' required>No
       <input type='radio' name='deployed' ng-model='DogName.deployed' value='Yes' required>Yes
+      <div ng-if='DogName.deployed === "Yes" ? true : false'>
+        <label>Describe the arrangement:</label>
+        <input type='text' name='arrangement' ng-model='DogName.arrangement'>
+      </div>
     </div>
 
     <div class='question'>
-      <label>Is {{DogName.name | uppercase}} in your home with the intent that {{DogName.gender}} will be adopted:</label>
+      <label>Is {{DogName.name | uppercase}} in your home with the intent that {{DogName.gender}} will be adopted:<span title="When you foster, you agree to take a homeless dog into your home and give him or her love, care and attention, either for a predetermined period of time or until the dog is adopted." class='fa fa-question'></span></label>
       <input type='radio' name='adopted' ng-model='DogName.adopted' value='No' required>No
       <input type='radio' name='adopted' ng-model='DogName.adopted' value='Yes' required>Yes
     </div>

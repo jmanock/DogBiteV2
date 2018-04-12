@@ -10,4 +10,8 @@ function DogForm($scope, $log) {
     $scope.dogInfo = true;
     $scope.personInfo = true;
   };
+
+  $scope.Personal = function (DogName) {
+    $scope.log(DogName);
+  };
 }

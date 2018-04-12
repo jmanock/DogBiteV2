@@ -1,5 +1,5 @@
 <form action="" name='DogForm' nonvalidate>
-  <section class='personInfo' ng-hide='personInfo'>
+  <!-- <section class='personInfo' ng-hide='personInfo'>
     <div class='question'>
       <input type='text' class='dogname' name='dName' placeholder="What's your Dog's Name?" ng-model='DogName.name' required autofocus>
     </div>
@@ -13,32 +13,32 @@
       <span title='All Dogs must reside in the same state. If you have dogs that reside in different states please complete seprate quotes' class='fa fa-question'></span>
     </div>
 
-    <input type='button' id='next' value='Next' ng-click='Name(DogName)' ng-disabled='DogForm.dName.$invalid || DogForm.email.$invalid || DogForm.states.$invalid' ng-enter='Name(DogName)'>
-  </section>
+    <input type='button' id='next' value='Next' ng-click='Name(DogName)' ng-disabled='DogForm.dName.$invalid || DogForm.email.$invalid || DogForm.state.$invalid' ng-enter='Name(DogName)'>
+  </section> -->
 
-  <section class='dogInfo' ng-show='dogInfo'>
+  <section class='dogInfo' ng-hide='dogInfo'>
     <div class='question'>
       <label>What BREED is {{DogName.name | uppercase}}:</label>
       <fountain-breeds></fountain-breeds>
     </div>
 
     <div class='question'>
-      <label>How OLD is {{DogName.name | uppercase}}: <span title='If {{DogName.name | uppercase}} is less than 1 enter 1' class='fa fa-question'></span></label>
-      <input type='number' min='1' max='20' ng-model='DogName.age' name='age' required>
+      <!-- <label>How OLD is {{DogName.name | uppercase}}: <span title='If {{DogName.name | uppercase}} is less than 1 enter 1' class='fa fa-question'></span></label> -->
+      <input type='number' min='1' max='20' ng-model='DogName.age' name='age' placeholder='How OLD is {{DogName.name}}' required>
     </div>
 
     <div class='question'>
-      <label>What COLOR is {{DogName.name | uppercase}}:</label>
-      <input type='text' name='color' ng-model='DogName.color' required>
+      <!-- <label>What COLOR is {{DogName.name | uppercase}}:</label> -->
+      <input type='text' name='color' ng-model='DogName.color' placeholder='What COLOR is {{DogName.name | uppercase}}:'required>
     </div>
 
     <div class='question'>
-      <label>How much does {{DogName.name | uppercase}} WEIGHT:</label>
+      <!-- <label>How much does {{DogName.name | uppercase}} WEIGHT:</label> -->
       <input type='number' min='1' ng-model='DogName.weight' name='weight' required>
     </div>
 
     <div class='question'>
-      <label>Where does {{DogName.name | uppercase}} go for relief/potty most of the time:</label>
+      <!-- <label>Where does {{DogName.name | uppercase}} go for relief/potty most of the time:</label> -->
       <select ng-model='DogName.bathroom' name='bathroom' required>
         <option value='' disabled selected>Please Choose...</option>
         <option value='Inside'>Inside completely enclosed fenced area</option>
@@ -102,6 +102,8 @@
         <option value='War'>War or Police Service dog, Professionally trained Personal Protection or Professional Trained Guard Dog</option>
       </select>
     </div>
+
+    <input type='button' value='next' ng-click='Personal(DogName)' ng-enter='Personal(DogName)'>
   </section>
 
   <section class='homeInfo' ng-show='homeInfo'>
@@ -241,5 +243,6 @@
       <input type='radio' name='adopted' ng-model='DogName.adopted' value='No' required>No
       <input type='radio' name='adopted' ng-model='DogName.adopted' value='Yes' required>Yes
     </div>
+    <input type='submit' value='Submit' ng-click='submit(DogName)' ng-enter='submit(DogName)' ng-disabled=''
   </section>
 </form>

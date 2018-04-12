@@ -1,14 +1,28 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700');
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-font-smoothing:antialiased;
+  -moz-font-smoothing:antialiased;
+  -o-font-smoothing:antialiased;
+  font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
 body{
   font-family:'Montserrat';
   margin:0;
   height:100%;
   font-weight:300;
   /* background-color:#DBDBD4; */
-  background-color:#DBDEE1;
+  /* background-color:#DBDEE1; */
+  background-color:#d8eefb !important;
 }
 .navbar{
-  background-color:#d8eefb !important;
+  /* background-color:#d8eefb !important; */
+  background-color:#0CF !important;
 }
 .navbar-brand{
   color:#333 !important;
@@ -28,10 +42,25 @@ body{
   height:40px;
 }
 input[type='button']:enabled{
-  background-color:orange;
   cursor:pointer;
 }
 input[type='button']:disabled{
-  
+  background-color:;
+}
+.dogInfo{
+  border:medium none !important;
+  margin:0 0 10px;
+  min-width:100%;
+  padding:0;
+  width:100%;
+}
+.dogInfo input[type='text'], input[type='number'], select, input[type='radio']{
 
+}
+.question{
+  border:medium none !important;
+  margin:0 0 10px;
+  min-width:100%;
+  padding:0;
+  width:100%;
 }

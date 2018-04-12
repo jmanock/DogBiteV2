@@ -53,3 +53,6 @@ body, h1, h2, h3 {
 .nav-item{
   color:#333 !important;
 }
+#next{
+  cursor:pointer;
+}

@@ -5,8 +5,9 @@ module.exports = {
 
 function DogForm($scope, $log) {
   $scope.$log = $log;
-  $log.log('Does this do anything?');
-  $scope.myFun = function () {
-    $log.log('Hi');
+  $scope.Name = function (DogName) {
+    $log.log(DogName);
+    $scope.dogInfo = true;
+    $scope.personInfo = true;
   };
 }

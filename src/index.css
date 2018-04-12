@@ -36,6 +36,13 @@ body, h1, h2, h3 {
   margin-top:-100px;
   margin-left:-150px;
 }
+.personInfo input, select{
+  width:400px;
+  height:40px;
+}
+.personInfo label{
+  margin-left:-50px;
+}
 
 .navbar{
   background-color:#D8EEFB !important;

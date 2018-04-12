@@ -18,17 +18,23 @@ body{
   font-weight:300;
   /* background-color:#DBDBD4; */
   /* background-color:#DBDEE1; */
-  background-color:#d8eefb !important;
+  /* background-color:#0CF !important; */
 }
 .navbar{
-  /* background-color:#d8eefb !important; */
-  background-color:#0CF !important;
+  background-color:#d8eefb !important;
+  /* background-color:#0CF !important; */
 }
 .navbar-brand{
   color:#333 !important;
 }
 .nav-item{
   color:#333 !important;
+}
+span{
+  cursor:pointer;
+}
+input[type='radio']{
+  cursor:pointer;
 }
 .personInfo{
   position:fixed;
@@ -48,14 +54,10 @@ input[type='button']:disabled{
   background-color:;
 }
 .dogInfo{
-  border:medium none !important;
-  margin:0 0 10px;
-  min-width:100%;
-  padding:0;
+  max-width:400px;
   width:100%;
-}
-.dogInfo input[type='text'], input[type='number'], select, input[type='radio']{
-
+  margin:0 auto;
+  position:relative;
 }
 .question{
   border:medium none !important;
@@ -63,4 +65,11 @@ input[type='button']:disabled{
   min-width:100%;
   padding:0;
   width:100%;
+}
+.dogInfo input[type='text'], .dogInfo select, .dogInfo input[type='number'], .dogInfo input[type='button']{
+  width:100%;
+  border:1px solid #ccc;
+  background:#fff;
+  margin:0 0 5px;
+  padding:10px;
 }

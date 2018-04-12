@@ -1,7 +1,10 @@
 <form action="" name='DogForm' nonvalidate>
   <section ng-hide='name' class='name'>
+    
     <input type='text' class='dogname' name='dName' placeholder="What's your DOG'S name?" ng-model='DogName.name' autofocus required>
+
     <input type='button' id='next'value='Next' ng-click='' ng-disabled='DogForm.dName.$invalid' ng-enter=''>
+
   </section>
 
   <section>
@@ -104,11 +107,49 @@
       <input type='radio' name='involved' ng-model='DogName.involved' value='No'>No
     </div>
 
-    <div class='question'>
+    <div class='questions'>
       <label>Do you take {{DogName.name | uppercase}} to off leash dog parks:</label>
       <input type='radio' value='Yes' ng-model='DogName.parks' name='parks'>Yes
       <input type='radio' value='No' ng-model='DogName.parks' name='parks'>No
     </div>
 
+    <div class='questions'>
+      <label>Human Injury:</label>
+      <select name='humanInjury' ng-model='DogName.humanInjury'>
+        <option value='' disabled selected>Please Choose...</option>
+        <option value='None'>None</option>
+        <option value='Child Scratch'>Injured a child - leaving minor bruising, scratch but no broken skin one time</option>
+        <option value='Adult Scratch'>Injured an adult - leaving minor bruising, scratch but no broken skin one time</option>
+        <option value='Child Breaking Skin'>Injured a child - breaking skin, no permanet scarring</option>
+        <option value='Adult Breaking Skin'>Injured an adult - brekaing skin, no permanet scarring</option>
+        <option value='Child Stitches'>Injured a child requiring medical attention and/or stitches</option>
+        <option value='Adult Stitches'>Injured an adult requiring medical attention and/or stitches</option>
+        <option value='Child more than Once'>Injured a child more than once</option>
+        <option value='Adult more than Once'>Injured an adult more than once</option>
+      </select>
+    </div>
 
+    <div class='questions'>
+      <label>Has {{DogName.name | uppercase}} ever injured another animal:</label>
+      <select name='animalInjury' ng-model='DogName.animalInjury'>
+        <option value='' disabled selected>Please Choose...</option>
+        <option value='None'>None</option>
+        <option value='Injured Animal'>Injured another animal</option>
+        <option value='Killed Animal'>Killed another animal</option>
+        <option value='Injured More than One'>Injured more than one animal</option>
+        <option value='Killed More than One'>Killed more than one animal</option>
+      </select>
+    </div>
+
+    <div class='questions'>
+      <label>Is {{DogName.name | uppercase}} in a foster arrangement where the owner has been deployed:</label>
+      <input type='radio' ng-model='DogName.deployed' name='deployed' value='Yes'>Yes
+      <input type='radio' ng-model='DogName.deployed' name='deployed' value='No'>No
+    </div>
+
+    <div class='questions'>
+      <label>Is {{DogName.name | uppercase}} in your home with the intent that {{DogName.gender}} will be adopted:</label>
+      <input type='radio' ng-model='DogName.homeAdopted' name='homeAdopted' value='Yes'>Yes
+      <input type='radio' ng-model='DogName.homeAdopted' name='homeAdopted' value='No'>No
+    </div>
 </form>

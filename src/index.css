@@ -1,16 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700');
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  -webkit-box-sizing:border-box;
-  -moz-box-sizing:border-box;
-  -webkit-font-smoothing:antialiased;
-  -moz-font-smoothing:antialiased;
-  -o-font-smoothing:antialiased;
-  font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-}
+
 body{
   font-family:'Montserrat';
   margin:0;
@@ -52,24 +41,4 @@ input[type='button']:enabled{
 }
 input[type='button']:disabled{
   background-color:;
-}
-.dogInfo{
-  max-width:400px;
-  width:100%;
-  margin:0 auto;
-  position:relative;
-}
-.question{
-  border:medium none !important;
-  margin:0 0 10px;
-  min-width:100%;
-  padding:0;
-  width:100%;
-}
-.dogInfo input[type='text'], .dogInfo select, .dogInfo input[type='number'], .dogInfo input[type='button']{
-  width:100%;
-  border:1px solid #ccc;
-  background:#fff;
-  margin:0 0 5px;
-  padding:10px;
 }

@@ -9,6 +9,8 @@ var footer = require('./app/footer');
 var form = require('./app/form');
 var states = require('./app/states');
 var breeds = require('./app/breeds');
+var questions = require('./app/questions');
+var about = require('./app/about');
 
 require('./index.css');
 
@@ -20,4 +22,6 @@ angular
   .component('fountainFooter', footer)
   .component('fountainForm', form)
   .component('fountainStates', states)
-  .component('fountainBreeds', breeds);
+  .component('fountainBreeds', breeds)
+  .component('fountainQuestions', questions)
+  .component('fountainAbout', about);

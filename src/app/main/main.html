@@ -43,35 +43,29 @@
       </tr>
     </tbody>
   </table> -->
-
-
-<table border='2'>
-  <tbody ng-submit='doneEditing'>
-    <tr ng-repeat='x in main.users'>
-      <td>
-        <input value='{{x.name}}' ng-dblclick='editItem(item)' style='border:none;'>
-      </td>
-      <td>
-        <input value='{{x.mail}}' ng-dblclick='editItem(item)' style='border:none;'>
-      </td>
-    </tr>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Age</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr ng-repeat='contact in main.model.contacts' ng-include='main.getTemplate(contact)'></tr>
   </tbody>
 </table>
-<table border='2'>
-  <tr ng-repeat='person in main.users'>
-    <td>
-      <div ng-hide='main.editorEnabled[$index]'>{{person.name}}></div>
-      <div ng-show='main.editorEnabled[$index]'><input type='text' value='{{person.name}}' ng-model='person.name'>
-      </div>
-    </td>
-    <td>
-      <div ng-hide='main.editorEnabled[$index]'>
-        <div ng-click='main.enableEditor($index)'>Edit</div>
-      </div>
-      <div ng-show='main.editorEnabled[$index]'>
-        <div ng-click='main.save($index,person.name,person.mail)' style='background-color:black; height:25px; width:50px; color:#333;'>SAVE</div>
-        <div ng-click='main.disableEditior($index)' style='background-color:#fff; height:25px; width:50px; color:#333;'>Cancel</div>
-      </div>
-    </td>
-  </table> 
+<script type='text/ng-template' id='display'>
+  <td>{{contact.name}}</td>
+  <td>{{contact.age}}</td>
+  <td>
+    <button ng-click='main.editContact(contact)'>Edit</button>
+  </td>
+</script>
+<script type='text/ng-template' id='edit'>
+  <td><input type='text' ng-model='main.model.selected.name'></td>
+  <td><input type='text' ng-model='main.model.selected.age'></td>
+  <td>
+    <button ng-click='main.saveContacts($index)'>Save</button>
+    <button ng-click='main.reset()'>Cancle</button>
+  </td>
+</script>
 </div>

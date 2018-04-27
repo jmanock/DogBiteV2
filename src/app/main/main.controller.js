@@ -27,76 +27,32 @@
     //   //vm.something=false;
     //   $log.log($event, $index);
     // }
-
-    vm.user = userFactory.getUser();
-    vm.editorEnabled = [];
-    vm.enableEditor = function(index){
-      vm.editorEnabled[index] = true;
-      vm.editName = vm.user.name;
-      vm.editName = vm.users.name;
-      vm.editMail = vm.user.mail;
-      vm.editMail = vm.users.mail;
-    };
-    vm.save = function(index, editNameValue, editEmailValue){
-      vm.users[index].name = editNameValue;
-      vm.users[index].mail = editEmailValue;
-      vm.disableEditor(index);
-    };
-    vm.disableEditor = function(index){
-      vm.editorEnabled[index] = false;
-    };
-    vm.users = userFactiry.getUsers();
-  }
-  var factories = angular.module('factories', []);
-  factories.factory('userFactory',  function(){
-    var factory = {
-      getUser:getUser,
-      getUsers:getUsers
-    }
-    return factory;
-    function getUser(){
-      var user = {
-        name:'henk2',
-        mail:'aaa@gmail.com'
-      }
-      return user;
-    }
-    function getUsers(){
-      var users = [
-        {name:"Bert", mail:'bert@gmail.com'},
-        {name:'Giel', mail:'giel@gmail.com'},
-        {name:'Willem', mail:'willem@gmail.com'}
-      ];
-      return users;
+    vm.model = {
+      contacts:[
+        {id:1, name:'Ben', age:28},
+        {id:2, name:'Sally', age:24},
+        {id:3, name:'John', age:32},
+        {id:4, name:'Jane', age:40}
+      ],
       selected:{}
-    }
-  });
-  factories.factory('carFactory', function(){
-    var factory = {
-      getCar:getCar
-    }
-    return factory;
-    function getCar(){
-      var car = {
-        color:'black',
-        maxSpeed:200,
-        name:'Audi r8 spyder'
+    };
+    vm.getTemplate = function(contact){
+      if(contact.id === vm.model.selected.id){
+        return 'edit';
+      }else{
+        return 'display';
       }
-      return car;
-    }
-  });
-  factories.factory('petFactory', function(){
-    var factory = {
-      getPet:getPet
-    }
-    return factory;
-    function getPet(){
-      var pet = {
-        name:"vlekje",
-        sport:'cat',
-        age:6
-      }
-      return pet;
-    }
-  });
+    };
+    vm.editContact = function(contact){
+      vm.model.selected = angular.copy(contact);
+    };
+    vm.saveContact = function(idx){
+      $log.log('Saving contact');
+      vm.model.contact[idx] = angular.copy(vm.model.selected);
+      vm.reset();
+    };
+    vm.reset = function(){
+      vm.model.selected = {};
+    };
+  }
 })();

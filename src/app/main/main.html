@@ -54,6 +54,7 @@
     <tr ng-repeat='contact in main.model.contacts' ng-include='main.getTemplate(contact)'></tr>
   </tbody>
 </table>
+<button ng-click='main.add(contact)'>Add New Person</button>
 <script type='text/ng-template' id='display'>
   <td>{{contact.name}}</td>
   <td>{{contact.age}}</td>
@@ -82,7 +83,7 @@
     </select>
   </td>
   <td>
-    <select ng-nodel='main.model.selected.state'>
+    <select ng-model='main.model.selected.state'>
       <option value='' selected disabled>Please Choose...</option>
       <option value='New York'>New York</option>
       <option value='Illinois'>Illinois</option>

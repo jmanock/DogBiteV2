@@ -56,5 +56,12 @@
     vm.reset = function(){
       vm.model.selected = {};
     };
+    vm.add = function(){
+      // Id should be plus one
+      var id = vm.model.contacts.id;
+      id = vm.model.contacts.length + 1;
+      $log.log(id);
+      vm.model.contacts.push({id:id, name:'', age:'', state:''});
+    }
   }
 })();

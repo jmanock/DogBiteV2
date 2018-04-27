@@ -45,7 +45,6 @@
     };
     vm.editContact = function(contact){
       vm.model.selected = angular.copy(contact);
-      $log.log('Welcome to the darkside');
     };
     vm.saveContact = function(idx){
       // $log.log('Saving contact');
@@ -62,6 +61,22 @@
       id = vm.model.contacts.length + 1;
       $log.log(id);
       vm.model.contacts.push({id:id, name:'', age:'', state:''});
+    };
+    vm.delete = function(name){
+      // Need to change the id number
+      // Need to remove row
+      var index = -1;
+      var comArr = eval(vm.model.contacts);
+      for (var i = 0; i<comArr.length; i++){
+        if(comArr[i].name === name){
+          index = i;
+          break;
+        }
+      }
+      if(index === -1){
+        alert('Something went wrong');
+      }
+      vm.model.contacts.splice(index, 1);
     }
   }
 })();

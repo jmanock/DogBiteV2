@@ -45,10 +45,12 @@
     };
     vm.editContact = function(contact){
       vm.model.selected = angular.copy(contact);
+      $log.log('Welcome to the darkside');
     };
     vm.saveContact = function(idx){
-      $log.log('Saving contact');
-      vm.model.contact[idx] = angular.copy(vm.model.selected);
+      // $log.log('Saving contact');
+       vm.model.contacts[idx] = angular.copy(vm.model.selected);
+      //$log.log(vm.model.contacts[idx]);
       vm.reset();
     };
     vm.reset = function(){

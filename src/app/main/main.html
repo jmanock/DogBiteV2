@@ -64,7 +64,25 @@
   <td><input type='text' ng-model='main.model.selected.name'></td>
   <td><input type='text' ng-model='main.model.selected.age'></td>
   <td>
-    <button ng-click='main.saveContacts($index)'>Save</button>
+    <select ng-model='main.model.selected.kname'>
+      <option value='' selected disabled>Please Choose...</option>
+      <option value='Steve'>Steve</option>
+      <option value='Kevin'>Kevin</option>
+      <option value='Peez'>Peez</option>
+      <option value='Beez'>Beez</option>
+    </select>
+  </td>
+  <td>
+    <select ng-nodel='main.model.selected.state'>
+      <option value='' selected disabled>Please Choose...</option>
+      <option value='Ny'>New York</option>
+      <option value='Il'>Illinois</option>
+      <option value='Io'>Iowa</option>
+      <option value='Ga'>Georiga</option>
+    </select>
+  </td>
+  <td>
+    <button ng-click='main.saveContact($index)'>Save</button>
     <button ng-click='main.reset()'>Cancle</button>
   </td>
 </script>

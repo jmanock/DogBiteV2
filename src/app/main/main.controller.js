@@ -29,10 +29,10 @@
     // }
     vm.model = {
       contacts:[
-        {id:1, name:'Ben', age:28},
-        {id:2, name:'Sally', age:24},
-        {id:3, name:'John', age:32},
-        {id:4, name:'Jane', age:40}
+        {id:1, name:'Ben', age:'28', state:'New York'},
+        {id:2, name:'Sally', age:'24', state:'Iowa'},
+        {id:3, name:'John', age:'32', state:'Georiga'},
+        {id:4, name:'Jane', age:'40', state:'New York'}
       ],
       selected:{}
     };

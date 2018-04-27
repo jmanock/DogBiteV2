@@ -47,6 +47,7 @@
   <thead>
     <th>Name</th>
     <th>Age</th>
+    <th>State</th>
     <th></th>
   </thead>
   <tbody>
@@ -56,29 +57,37 @@
 <script type='text/ng-template' id='display'>
   <td>{{contact.name}}</td>
   <td>{{contact.age}}</td>
+  <td>{{contact.state}}</td>
   <td>
     <button ng-click='main.editContact(contact)'>Edit</button>
   </td>
 </script>
 <script type='text/ng-template' id='edit'>
-  <td><input type='text' ng-model='main.model.selected.name'></td>
-  <td><input type='text' ng-model='main.model.selected.age'></td>
   <td>
-    <select ng-model='main.model.selected.kname'>
+    <select ng-model='main.model.selected.name'>
       <option value='' selected disabled>Please Choose...</option>
-      <option value='Steve'>Steve</option>
-      <option value='Kevin'>Kevin</option>
-      <option value='Peez'>Peez</option>
-      <option value='Beez'>Beez</option>
+      <option value='Ben'>Ben</option>
+      <option value='Sally'>Sally</option>
+      <option value='John'>John</option>
+      <option value='Jane'>Jane</option>
+    </select>
+  </td>
+  <td>
+    <select ng-model='main.model.selected.age'>
+      <option value='' selected disabled>Please Choose...</option>
+      <option value='28'>28</option>
+      <option value='24'>24</option>
+      <option value='32'>32</option>
+      <option value='40'>40</option>
     </select>
   </td>
   <td>
     <select ng-nodel='main.model.selected.state'>
       <option value='' selected disabled>Please Choose...</option>
-      <option value='Ny'>New York</option>
-      <option value='Il'>Illinois</option>
-      <option value='Io'>Iowa</option>
-      <option value='Ga'>Georiga</option>
+      <option value='New York'>New York</option>
+      <option value='Illinois'>Illinois</option>
+      <option value='Iowa'>Iowa</option>
+      <option value='Georiga'>Georiga</option>
     </select>
   </td>
   <td>

@@ -43,7 +43,7 @@
       </tr>
     </tbody>
   </table> -->
-<table>
+<!-- <table>
   <thead>
     <th>Name</th>
     <th>Age</th>
@@ -97,4 +97,41 @@
     <button ng-click='main.delete(main.model.selected.name)'>Delete</button>
   </td>
 </script>
+</div> -->
+<div class='container'>
+  <form>
+    <div class='form-group'>
+      <label class='form-control-label'>Name:</label>
+      <input class='form-control' type='text' ng-model='dog.name' autofocus>
+    </div>
+    <div class='form-group'>
+      <label class='form-control-label'>State:</label>
+      <select ng-model='dog.state' class='form-control'>
+        <option value='' selected disabled>Please Choose...</option>
+        <option value='ne'>Nebraska</option>
+        <option value='fl'>Florida</option>
+        <option value='iw'>Iowa</option>
+      </select>
+    </div>
+    <div class='form-group'>
+      <label class='form-control-label'>Email:</label>
+      <input type='email' class='form-control' ng-model='dog.email'>
+    </div>
+    <button type='button' ng-click='main.Next(dog)' class='btn btn-success'>Next</button>
+  </form>
+  <table class='table'>
+    <h1>Welcome</h1>
+    <thead>
+      <tr ng-repeat='d in main.dog'>
+        <td>{{d.name}}</td>
+        <td>{{d.state}}</td>
+        <td>{{d.email}}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><button type='button' class='btn btn-success' ng-click='main.Add()'>Add</button></td>
+      </tr>
+    </tbody>
+  </tabel>
 </div>

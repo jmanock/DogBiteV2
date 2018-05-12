@@ -78,5 +78,18 @@
       }
       vm.model.contacts.splice(index, 1);
     }
+    vm.Next = function(dog){
+      vm.results = true;
+      vm.dog = [dog];
+      $log.log(vm.dog);
+    };
+    vm.Add = function(){
+      vm.dog.push([{
+
+      }]);
+    };
+    vm.Save = function(){
+
+    };
   }
 })();

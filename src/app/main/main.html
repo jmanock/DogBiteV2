@@ -123,6 +123,7 @@
     <h1>Welcome</h1>
     <thead>
       <tr ng-repeat='d in main.dog'>
+        <td>{{$index}}</td>
         <td>{{d.name}}</td>
         <td>{{d.state}}</td>
         <td>{{d.email}}</td>
@@ -130,7 +131,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><button type='button' class='btn btn-success' ng-click='main.Add()'>Add</button></td>
+        <td><button type='button' class='btn btn-success' ng-click='main.Add(main.dog)'>Add</button></td>
       </tr>
     </tbody>
   </tabel>

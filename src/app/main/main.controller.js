@@ -83,10 +83,8 @@
       vm.dog = [dog];
       $log.log(vm.dog);
     };
-    vm.Add = function(){
-      vm.dog.push([{
-
-      }]);
+    vm.Add = function(index){
+    $log.log(index);
     };
     vm.Save = function(){
 

@@ -78,13 +78,17 @@
       }
       vm.model.contacts.splice(index, 1);
     }
+
+    vm.dogs = [
+      {name:'', state:'', email:''}
+    ];
+
     vm.Next = function(dog){
       vm.results = true;
-      vm.dog = [dog];
-      $log.log(vm.dog);
+      vm.dogs.push(dog);
     };
-    vm.Add = function(index){
-    $log.log(index);
+    vm.Add = function(){
+      
     };
     vm.Save = function(){
 

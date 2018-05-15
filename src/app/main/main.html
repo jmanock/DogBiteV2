@@ -130,8 +130,33 @@
     </thead>
     <tbody>
       <tr>
-        <td><button type='button' class='btn btn-success' ng-click='main.Add()'>Add</button></td>
+      <tr>
+        <td>
+          <button type='button' class='btn btn-success' ng-click='main.Add()'>Add</button>
+          <button type='button' class='btn btn-default' ng-click='main.Edit()'>Edit</button>
+        </td>
       </tr>
     </tbody>
   </tabel>
+  <form>
+    <div class='form-group'>
+      <label class='form-control-label'>Name:</label>
+      <input type='text' class='form-control' ng-model='main.userObject.name'>
+    </div>
+    <div class='form-group'>
+      <label class='form-control-label'>State:</label>
+      <select ng-model='main.userObject.state' class='form-control'>
+        <option value='' selected disabled>Please Choose...</option>
+        <option value='Ne'>Nebraska</option>
+        <option value='Fl'>Florida</option>
+        <option value='Ia'>Iowa</option>
+      </select>
+    </div>
+    <div class='form-group'>
+      <label class='form-control-label'>Email:</label>
+      <input type='email' class='form-control' ng-model='main.userObject.email'>
+    </div>
+    <button class='btn btn-success' ng-click='main.Save()'>Save</button>
+
+  </form>
 </div>

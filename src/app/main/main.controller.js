@@ -44,7 +44,9 @@
 
     ctrl.tasklist = [];
     ctrl.addTask = function(){
-      ctrl.tasklist.push(ctrl.taskInput);
+      ctrl.tasklist.push(
+        {desc: ctrl.taskInput, done:false, edit:false}
+      );
       ctrl.taskInput = '';
     }
   }

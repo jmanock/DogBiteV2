@@ -1,43 +1,4 @@
 <acme-navbar></acme-navbar>
-<!-- <div class='container'>
-  <div class='wrapper wrapper-small'>
-    <div class='box box--dark'>
-      <h1 class='mb0'>{{title}}: {{task.length + tasksComplete.length}} {{tasks.length + tasksComplete.length === 1 ? 'task' : 'tasks'}}.</h1>
-    </div>
-    <div class='box box--small box-highlight'>
-      <span>{{tasksComplete.length}} of {{taskLength()}} ({{taskCompletionTotal(tasksComplete.length)}}%) tasks complete.</span>
-    </div>
-    <ul class='list-ui'>
-      <li class='list-ui__item'>
-        <form name='addTask' ng-submit='createTask()' nonvalidate>
-          <input class='input-ui' type='text' ng-model='newTitle' placeholder='Write a new task and hit enter...' ng-required autofocus>
-          <div class='fr'>
-            <button ng-hide='true' class='btn' type='submit' ng-disabled='addTask.$invalid'>Add Task</button>
-          </div>
-        </form>
-      </li>
-      <li class='list-ui__item' ng-repeat='task in tasks'>
-        <span>{{task.title}}</span>
-        <div class='fr'>
-          <a href ng-click='removeTask($index)'>
-            Remove
-          </a>
-          <a href ng-click='Edit($index)'>
-            Edit
-          </a>
-        </div>
-      </li>
-      <li class='list-ui__item' ng-class="{'status status-done' : task.complete}" ng-repeat='task in tasksComplete'>
-        <span>{{task.title}}</span>
-        <div class='fr'>
-          <a href ng-click='uncompleteTask($index)'>
-            <span class='fa fa-undo'></span>
-          </a>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div> -->
 <div class='container'>
   <h1> You have <span>{{main.tasklist.length}} </span>
     <span ng-show='main.tasklist.length === 1'>task</span>
@@ -60,4 +21,39 @@
       </div>
    </li>
   </ul>
+
+
+  <div class='form-group'>
+    <label class='form-control-label'>Name:</label>
+    <input type='text' placeholder='Name' class='form-control' ng-model='main.name'>
+  </div>
+  <div class='form-group'>
+    <label class='form-control-label'>Email:</label>
+    <input type='email' class='form-control' placeholder='Email' ng-model='main.email'>
+  </div>
+  <div class='form-group'>
+    <label class='form-control-label'>State:</label>
+    <select class='form-control' ng-model='main.state'>
+      <option value='' selected disabled>Please Choose...</option>
+      <option value='Ne'>Nebraska</option>
+      <option value='Fl'>Florida</option>
+      <option value='Il'>Illinois</option>
+    </select>
+  </div>
+  <button ng-click='main.Next()' class='btn btn-default'>Next</button>
+  <div class='edit-mode' ng-show=''>
+    <input type='text' ng-model='main.name'>
+    <input type='email' ng-model='main.email'>
+    <select ng-model='main.state'>
+      <option value='' selected disabled>Please Choose...</option>
+      <option value='Ne'>Nebraska</option>
+      <option value='Il'>Illinois</option>
+      <option value='Fl'>Florida</option>
+    </select>
+  </div>
+  <div class='show-mode' ng-show=''>
+    <ul ng-repeat='dog in main.doglist'>
+      <li>{{dog}}</li>
+    </ul>
+  </div>
 </div>

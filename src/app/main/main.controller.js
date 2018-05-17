@@ -49,5 +49,12 @@
       );
       ctrl.taskInput = '';
     }
+    ctrl.doglist = [];
+    ctrl.Add = function(){
+      $log.log('You win!');
+      ctrl.doglist.push(
+        {name:ctrl.name, email:ctrl.email, state:ctrl.state}
+      );
+    }
   }
 })();

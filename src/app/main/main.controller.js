@@ -51,11 +51,14 @@
     }
     ctrl.doglist = [];
     ctrl.Add = function(){
-      $log.log('You win!');
       ctrl.doglist.push(
         {name:ctrl.dog.name, email:ctrl.dog.email, state:ctrl.dog.state, edit:false}
       );
       ctrl.dog = '';
+    }
+    ctrl.Remove = function(index){
+      $log.log(index);
+      ctrl.doglist.splice(index,1);
     }
   }
 })();

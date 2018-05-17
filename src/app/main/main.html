@@ -35,20 +35,22 @@
   <button ng-click='main.Add()' ng-disabled='main.dog.name === $invalid || main.dog.email === $invalid || main.dog.state === $invalid'>Add</button>
 </form>
 <ul ng-repeat='dogs in main.doglist'>
-  <li>{{dogs.name}} | {{dogs.email}} | {{dogs.state}}</li>
-  <div class='edit-mode'>
-    <input type='text' ng-model='dogs.name'>
-    <input type='email' ng-model='dogs.email'>
-    <select ng-model='dogs.state'>
-      <option value='' selected disabled>Please Choose...</option>
-      <option value='Ne'>Nebraska</option>
-      <option value='Il'>Illinois</option>
-      <option value='Fl'>Florida</option>
-    </select>
-    <a ng-click='dogs.edit=false'>Save</a>
-  </div>
-  <div class='show-mode'>
-    {{dogs.name}} | {{dogs.email}} | {{dogs.state}}
-    <a ng-click='dogs.edit=true'>Edit</a>
+  <li>
+    <div class='edit-mode' ng-show='dogs.edit'>
+      <input type='text' ng-model='dogs.name'>
+      <input type='email' ng-model='dogs.email'>
+      <select ng-model='dogs.state'>
+        <option value='' selected disabled>Please Choose...</option>
+        <option value='Ne'>Nebraska</option>
+        <option value='Il'>Illinois</option>
+        <option value='Fl'>Florida</option>
+      </select>
+      <a ng-click='dogs.edit=fals'>Save</a>
+    </div>
+    <div class='show-mode' ng-show='!dogs.edit'>
+      {{dogs.name}} | {{dogs.email}} | {{dogs.state}}
+      <a ng-click='dogs.edit=true'>Edit</a>
+      <a ng-click='main.Remove($index)'>Remove</a>
+    </div>
 </ul>
 </div>

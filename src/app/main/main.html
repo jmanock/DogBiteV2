@@ -21,7 +21,7 @@
       </div>
    </li>
   </ul> -->
-
+<div ng-hide='main.form'>
 <form>
   <div class='form-group'>
     <label class='form-control-label'>Name:</label>
@@ -42,10 +42,9 @@
   </div>
   <button ng-click='main.Next()' ng-disabled='main.dog.name === $invalid || main.dog.email === $invalid || main.dog.state === $invalid'>Next</button>
 </form>
-<div class='something' ng-repeat='dogs in main.doglist'>
-
-<div ng-show='!dogs.edit'>
-  <table class='table'>
+</div>
+<button class='btn btn-success' ng-click='main.Add()'>Add Dog</button>
+  <table class='table' ng-show='main.summary'>
     <thead>
       <tr>
         <th>Name</th>
@@ -54,37 +53,27 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr ng-repeat='dogs in main.doglist'>
         <td>{{dogs.name}}</td>
         <td>{{dogs.email}}</td>
         <td>{{dogs.state}}</td>
         <td>
-          <button class='btn btn-success' ng-click='dogs.edit = true'>Edit</button>
+          <button class='btn btn-success' ng-click='main.Edit(dogs)'>Edit</button>
           <button class='btn btn-danger' ng-click='main.Remove($index)'>Remove</button>
         </td>
+      </div>
       </tr>
     </tbody>
   </table>
-</div>
-<div ng-show='dogs.edit'>
-  <div class='form-group'>
-    <label class='form-control-label'>Name:</label>
-    <input type='text' ng-model='dogs.name' class='form-control'>
-  </div>
-  <div class='form-group'>
-    <label class='form-control-label'>Email:</label>
-    <input type='email' ng-model='dogs.email' class='form-control'>
-  </div>
-  <div class='form-group'>
-    <label class='form-control-label'>State:</label>
-    <select ng-model='dogs.state' class='form-control'>
+  <div ng-show='main.edits'>
+    <input type='text' ng-model='main.dogs.name'>
+    <input type='email' ng-model='main.dogs.email'>
+    <select ng-model='main.dogs.state'>
       <option value='' selected disabled>Please Choose...</option>
-      <option value='FL'>Florida</option>
       <option value='NE'>Nebraska</option>
       <option value='IL'>Illinois</option>
+      <option value='FL'>Florida</option>
     </select>
+    <button ng-click='main.save(main.dogs)'>Save</button>
   </div>
-  <button ng-click='dogs.edit = false' class='btn btn-secondary'>Save</button>
-</div>
-
 </div>

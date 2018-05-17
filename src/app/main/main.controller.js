@@ -54,11 +54,27 @@
       ctrl.doglist.push(
         {name:ctrl.dog.name, email:ctrl.dog.email, state:ctrl.dog.state, edit:false}
       );
-      ctrl.dog = '';
+      ctrl.summary = true;
+       ctrl.dog = '';
+       ctrl.form = true;
     }
     ctrl.Remove = function(index){
       $log.log(index);
       ctrl.doglist.splice(index,1);
+    };
+    ctrl.Edit = function(dog){
+      ctrl.edits = true;
+      ctrl.summary = false;
+      ctrl.dogs = dog;
+      $log.log(dog);
+    }
+    ctrl.save = function(dog){
+      ctrl.summary = true;
+      ctrl.edits = false;
+    };
+    ctrl.Add = function(){
+      ctrl.form = false;
+      ctrl.summary = false;
     }
   }
 })();

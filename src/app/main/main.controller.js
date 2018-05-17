@@ -53,8 +53,9 @@
     ctrl.Add = function(){
       $log.log('You win!');
       ctrl.doglist.push(
-        {name:ctrl.name, email:ctrl.email, state:ctrl.state}
+        {name:ctrl.dog.name, email:ctrl.dog.email, state:ctrl.dog.state, edit:false}
       );
+      ctrl.dog = '';
     }
   }
 })();

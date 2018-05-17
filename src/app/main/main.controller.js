@@ -50,7 +50,7 @@
       ctrl.taskInput = '';
     }
     ctrl.doglist = [];
-    ctrl.Add = function(){
+    ctrl.Next = function(){
       ctrl.doglist.push(
         {name:ctrl.dog.name, email:ctrl.dog.email, state:ctrl.dog.state, edit:false}
       );

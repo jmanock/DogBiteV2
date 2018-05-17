@@ -1,6 +1,6 @@
 <acme-navbar></acme-navbar>
 <div class='container'>
-  <h1> You have <span>{{main.tasklist.length}} </span>
+  <!-- <h1> You have <span>{{main.tasklist.length}} </span>
     <span ng-show='main.tasklist.length === 1'>task</span>
     <span ng-show='main.tasklist.length >1'>tasks</span>
   </h1>
@@ -20,37 +20,71 @@
         <a ng-click='task.edit=true'>Edit</a>
       </div>
    </li>
-  </ul>
+  </ul> -->
 
-<h1>New Quote</h1>
 <form>
-  <input type='text' placeholder='Dogs Name' ng-model='main.dog.name'>
-  <input type='email' placeholder='Email' ng-model='main.dog.email'>
-  <select ng-model='main.dog.state'>
-    <option value='' selected disabled>Please Choose...</option>
-    <option value='Fl'>Florida</option>
-    <option value='Ne'>Nebraska</option>
-    <option value='Il'>Illinois</option>
-  </select>
-  <button ng-click='main.Add()' ng-disabled='main.dog.name === $invalid || main.dog.email === $invalid || main.dog.state === $invalid'>Add</button>
+  <div class='form-group'>
+    <label class='form-control-label'>Name:</label>
+    <input type='text' class='form-control' ng-model='main.dog.name' autofocus>
+  </div>
+  <div class='form-group'>
+    <label class='form-control-label'>Email:</label>
+    <input type='email' class='form-control' ng-model='main.dog.email'>
+  </div>
+  <div class='form-group'>
+    <label class='form-control-label'>State:</label>
+    <select class='form-control' ng-model='main.dog.state'>
+      <option value='' selected disabled>Please Choose...</option>
+      <option value='FL'>Florida</option>
+      <option value='NE'>Nebraska</option>
+      <option value='IL'>Illinois</option>
+    </select>
+  </div>
+  <button ng-click='main.Next()' ng-disabled='main.dog.name === $invalid || main.dog.email === $invalid || main.dog.state === $invalid'>Next</button>
 </form>
-<ul ng-repeat='dogs in main.doglist'>
-  <li>
-    <div class='edit-mode' ng-show='dogs.edit'>
-      <input type='text' ng-model='dogs.name'>
-      <input type='email' ng-model='dogs.email'>
-      <select ng-model='dogs.state'>
-        <option value='' selected disabled>Please Choose...</option>
-        <option value='Ne'>Nebraska</option>
-        <option value='Il'>Illinois</option>
-        <option value='Fl'>Florida</option>
-      </select>
-      <a ng-click='dogs.edit=fals'>Save</a>
-    </div>
-    <div class='show-mode' ng-show='!dogs.edit'>
-      {{dogs.name}} | {{dogs.email}} | {{dogs.state}}
-      <a ng-click='dogs.edit=true'>Edit</a>
-      <a ng-click='main.Remove($index)'>Remove</a>
-    </div>
-</ul>
+<div class='something' ng-repeat='dogs in main.doglist'>
+
+<div ng-show='!dogs.edit'>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>State</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{dogs.name}}</td>
+        <td>{{dogs.email}}</td>
+        <td>{{dogs.state}}</td>
+        <td>
+          <button class='btn btn-success' ng-click='dogs.edit = true'>Edit</button>
+          <button class='btn btn-danger' ng-click='main.Remove($index)'>Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div ng-show='dogs.edit'>
+  <div class='form-group'>
+    <label class='form-control-label'>Name:</label>
+    <input type='text' ng-model='dogs.name' class='form-control'>
+  </div>
+  <div class='form-group'>
+    <label class='form-control-label'>Email:</label>
+    <input type='email' ng-model='dogs.email' class='form-control'>
+  </div>
+  <div class='form-group'>
+    <label class='form-control-label'>State:</label>
+    <select ng-model='dogs.state' class='form-control'>
+      <option value='' selected disabled>Please Choose...</option>
+      <option value='FL'>Florida</option>
+      <option value='NE'>Nebraska</option>
+      <option value='IL'>Illinois</option>
+    </select>
+  </div>
+  <button ng-click='dogs.edit = false' class='btn btn-secondary'>Save</button>
+</div>
+
 </div>

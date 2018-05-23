@@ -21,12 +21,8 @@
       </div>
    </li>
   </ul> -->
-<div ng-hide='main.form'>
+<!-- <div ng-hide='main.form'>
 <form>
-  <div class='progress'>
-    <div class='progress-bar progress-bar-striped progress-bar-animated' ng-style="{'width': currentPercentage + '%'}">
-      <span>{{currentPercentage}}% complete</span>
-    </div>
   </div>
   <div class='form-group'>
     <label class='form-control-label'>Name:</label>
@@ -80,5 +76,71 @@
       <option value='FL'>Florida</option>
     </select>
     <button ng-click='main.save(main.dogs)'>Save</button>
-  </div>
+  </div> -->
+
+  <form class='form-horizontal'>
+    <div class='progress'>
+      <div class='progress-bar progress-bar-striped progress-bar-animated' ng-style="{'width': currentPercentage + '%'}">
+        <span>{{currentPercentage}}% complete</span>
+      </div>
+    </div>
+    <div class='row'>
+      <section class='col-md-9' ng-hide='main.personInfo'>
+        <div class='form-group'>
+          <label class='form-control-label'>Dogs Name:</label>
+          <input type='text' ng-model='main.dog.name' class='form-control'>
+        </div>
+        <div class='form-group'>
+          <label class='form-control-label'>Email:</label>
+          <input type='email' class='form-control' ng-model='main.dog.email'>
+        </div>
+        <button ng-click='main.Next(main.dog,"d")'>Next</button>
+      </section>
+      <section ng-show='main.dogInfo'>
+        <div class='form-group'>
+          <label class='form-control-label'>What Color is {{main.dog.name}}:</label>
+          <input type='text' class='form-control' ng-model='main.dog.color'>
+        </div>
+        <div class='form-group'>
+          <label class='form-control-label'>How old is {{main.dog.name}}:</label>
+          <input type='number' class='form-control' ng-model='main.dog.age'>
+        </div>
+        <div class='form-group'>
+          <label class='form-control-label'>What State is {{main.dog.name}}:</label>
+          <select class='form-control' ng-model='main.dog.state'>
+            <option value='' selected disabled>Please Choose...</option>
+            <option value='NE'>Nebraska</option>
+            <option value='IL'>Illinois</option>
+            <option value='FL'>Florida</option>
+          </select>
+        </div>
+        <button ng-click='main.Next(main.dog,"s")'>Next</button>
+      </section>
+
+      <section ng-show='main.summary'>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Edit</th>
+              <th>Name</th>
+              <th>Color</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat='dogs in main.doglist'>
+              <td>
+                <button class='btn btn-danger' ng-click='main.Edit()'>Edit</button>
+              </td>
+              <td>{{dogs.name}}</td>
+              <td>{{dogs.color}}</td>
+              <td>{{dogs.email}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <button class='btn btn-success' ng-click='main.Calculate()'>Calculate</button>
+      </section>
+      <section ng-show='main.finish'>
+        <h1>Policy Info</h1>
+      </section>
 </div>

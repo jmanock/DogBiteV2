@@ -50,33 +50,59 @@
       ctrl.taskInput = '';
     }
     ctrl.doglist = [];
-    ctrl.Next = function(){
+    // ctrl.Next = function(){
+    //   ctrl.doglist.push(
+    //     {name:ctrl.dog.name, email:ctrl.dog.email, state:ctrl.dog.state, color:ctrl.dog.color, edit:false}
+    //   );
+    //   ctrl.personInfo = true;
+    //   ctrl.dogInfo = true;
+    //   ctrl.summary = true;
+    //    ctrl.dog = '';
+    //    ctrl.form = true;
+    //    $scope.currentPercentage = '60';
+    // }
+    // ctrl.Remove = function(index){
+    //   $log.log(index);
+    //   ctrl.doglist.splice(index,1);
+    // };
+    // ctrl.Edit = function(dog){
+    //   ctrl.edits = true;
+    //   ctrl.summary = false;
+    //   ctrl.dogs = dog;
+    //   $log.log(dog);
+    // }
+    // ctrl.save = function(dog){
+    //   ctrl.summary = true;
+    //   ctrl.edits = false;
+    // };
+    // ctrl.Add = function(){
+    //   ctrl.form = false;
+    //   ctrl.summary = false;
+    // }
+
+    ctrl.Next = function(dog, x){
       ctrl.doglist.push(
-        {name:ctrl.dog.name, email:ctrl.dog.email, state:ctrl.dog.state, edit:false}
+        {name:ctrl.dog.name, email:ctrl.dog.email, state:ctrl.dog.state, color:ctrl.dog.color, age:ctrl.dog.age}
       );
-      ctrl.summary = true;
-       ctrl.dog = '';
-       ctrl.form = true;
-       $scope.currentPercentage = '60';
-    }
-    ctrl.Remove = function(index){
-      $log.log(index);
-      ctrl.doglist.splice(index,1);
+      if(x === 'd'){
+        ctrl.personInfo = true;
+        ctrl.dogInfo = true;
+        $scope.currentPercentage = '25';
+        $log.log(dog);
+      }else if(x === 's'){
+        ctrl.summary = true;
+        ctrl.dogInfo = false;
+        $scope.currentPercentage = '50';
+      }
     };
-    ctrl.Edit = function(dog){
-      ctrl.edits = true;
-      ctrl.summary = false;
-      ctrl.dogs = dog;
-      $log.log(dog);
-    }
-    ctrl.save = function(dog){
-      ctrl.summary = true;
-      ctrl.edits = false;
+    ctrl.Summary = function(){
+      $scope.currentPercentage = '75';
     };
-    ctrl.Add = function(){
-      ctrl.form = false;
+    ctrl.Calculate = function(){
+      $scope.currentPercentage = '99';
+      ctrl.finish = true;
       ctrl.summary = false;
-    }
-    $scope.currentPercentage = '0';
+    };
+
   }
 })();

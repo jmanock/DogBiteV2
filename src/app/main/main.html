@@ -23,6 +23,11 @@
   </ul> -->
 <div ng-hide='main.form'>
 <form>
+  <div class='progress'>
+    <div class='progress-bar progress-bar-striped progress-bar-animated' ng-style="{'width': currentPercentage + '%'}">
+      <span>{{currentPercentage}}% complete</span>
+    </div>
+  </div>
   <div class='form-group'>
     <label class='form-control-label'>Name:</label>
     <input type='text' class='form-control' ng-model='main.dog.name' autofocus>

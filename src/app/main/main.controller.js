@@ -57,6 +57,7 @@
       ctrl.summary = true;
        ctrl.dog = '';
        ctrl.form = true;
+       $scope.currentPercentage = '60';
     }
     ctrl.Remove = function(index){
       $log.log(index);
@@ -76,5 +77,6 @@
       ctrl.form = false;
       ctrl.summary = false;
     }
+    $scope.currentPercentage = '0';
   }
 })();

@@ -6,7 +6,7 @@
   <section ng-hide='myCheck' class='first'></section>
   <section ng-show='nextCheck' class='second'></section> -->
 
-  <!-- <form class='form-horizontal'>
+  <form class='form-horizontal'>
     <div class='progress'>
       <div class='progress-bar progress-bar-striped' ng-style="{'width':currentPercentage + '%'}" role='progressbar'>
         <span>{{furrentPercentage}}% complete</span>
@@ -42,7 +42,6 @@
             <option value='IL'>Illinois</option>
           </select>
         </div>
-      </div> -->
-      <input type='text' ng-model='main.name' placeholder='Name' class='form-control'>
+      </div>
       <button ui-sref='form({name:main.name})'>Next</button>
 </div>

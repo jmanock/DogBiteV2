@@ -5,8 +5,20 @@
       "angularVersion": "~1.5.3",
       "angularModules": [
         {
+          "key": "animate",
+          "module": "ngAnimate"
+        },
+        {
+          "key": "cookies",
+          "module": "ngCookies"
+        },
+        {
           "key": "touch",
           "module": "ngTouch"
+        },
+        {
+          "key": "sanitize",
+          "module": "ngSanitize"
         },
         {
           "key": "messages",

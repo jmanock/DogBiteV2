@@ -1,146 +1,48 @@
-<acme-navbar></acme-navbar>
-<div class='container'>
-  <!-- <h1> You have <span>{{main.tasklist.length}} </span>
-    <span ng-show='main.tasklist.length === 1'>task</span>
-    <span ng-show='main.tasklist.length >1'>tasks</span>
-  </h1>
-  <form ng-submit='main.addTask()'>
-    <input type='text' ng-model='main.taskInput' autofocus required>
-    <input type='submit'>
-  </form>
-  <ul ng-repeat='task in main.tasklist'>
-    <li ng-class='{"completed-task":task.done}'>
-      <div class='edit-mode' ng-show='task.edit'>
-        <input type='text' ng-model='task.desc'>
-        <a ng-click='task.edit=false'>Save</a>
-      </div>
-      <div class='show-mode' ng-show='!task.edit'>
-        <input type='checkbox' ng-model='task.done'>
-        {{task.desc}}
-        <a ng-click='task.edit=true'>Edit</a>
-      </div>
-   </li>
-  </ul> -->
-<!-- <div ng-hide='main.form'>
-<form>
+<div class="container">
+  <div>
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
   </div>
-  <div class='form-group'>
-    <label class='form-control-label'>Name:</label>
-    <input type='text' class='form-control' ng-model='main.dog.name' autofocus>
-  </div>
-  <div class='form-group'>
-    <label class='form-control-label'>Email:</label>
-    <input type='email' class='form-control' ng-model='main.dog.email'>
-  </div>
-  <div class='form-group'>
-    <label class='form-control-label'>State:</label>
-    <select class='form-control' ng-model='main.dog.state'>
-      <option value='' selected disabled>Please Choose...</option>
-      <option value='FL'>Florida</option>
-      <option value='NE'>Nebraska</option>
-      <option value='IL'>Illinois</option>
-    </select>
-  </div>
-  <button ng-click='main.Next()' ng-disabled='main.dog.name === $invalid || main.dog.email === $invalid || main.dog.state === $invalid'>Next</button>
-</form>
-</div>
-<button class='btn btn-success' ng-click='main.Add()'>Add Dog</button>
-  <table class='table' ng-show='main.summary'>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>State</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat='dogs in main.doglist'>
-        <td>{{dogs.name}}</td>
-        <td>{{dogs.email}}</td>
-        <td>{{dogs.state}}</td>
-        <td>
-          <button class='btn btn-success' ng-click='main.Edit(dogs)'>Edit</button>
-          <button class='btn btn-danger' ng-click='main.Remove($index)'>Remove</button>
-        </td>
-      </div>
-      </tr>
-    </tbody>
-  </table>
-  <div ng-show='main.edits'>
-    <input type='text' ng-model='main.dogs.name'>
-    <input type='email' ng-model='main.dogs.email'>
-    <select ng-model='main.dogs.state'>
-      <option value='' selected disabled>Please Choose...</option>
-      <option value='NE'>Nebraska</option>
-      <option value='IL'>Illinois</option>
-      <option value='FL'>Florida</option>
-    </select>
-    <button ng-click='main.save(main.dogs)'>Save</button>
-  </div> -->
+  <!-- <h1>Hide the DIV:<input type='button' ng-click='main.test()' value='Text'></h1>
+  <section ng-hide='myCheck' class='first'></section>
+  <section ng-show='nextCheck' class='second'></section> -->
 
-  <form class='form-horizontal'>
+  <!-- <form class='form-horizontal'>
     <div class='progress'>
-        <div class='progress-bar progress-bar-striped' ng-style="{'width': currentPercentage + '%'}" role='progressbar'>
-        <span>{{currentPercentage}}% complete</span>
+      <div class='progress-bar progress-bar-striped' ng-style="{'width':currentPercentage + '%'}" role='progressbar'>
+        <span>{{furrentPercentage}}% complete</span>
       </div>
     </div>
     <div class='row'>
-      <section class='col-md-9' ng-hide='main.personInfo'>
+      <section class='col-md-9 first' ng-hide='main.personInfo'>
         <div class='form-group'>
           <label class='form-control-label'>Dogs Name:</label>
           <input type='text' ng-model='main.dog.name' class='form-control'>
         </div>
         <div class='form-group'>
           <label class='form-control-label'>Email:</label>
-          <input type='email' class='form-control' ng-model='main.dog.email'>
+          <input type='email' ng-model='main.dog.email' class='form-control'>
         </div>
-        <button ng-click='main.Next(main.dog,"d")'>Next</button>
+        <button class='btn btn-default' ng-click='main.test()'>Next</button>
       </section>
-      <section ng-show='main.dogInfo'>
+      <section ng-show='main.dogInfo' class='second'>
         <div class='form-group'>
           <label class='form-control-label'>What Color is {{main.dog.name}}:</label>
-          <input type='text' class='form-control' ng-model='main.dog.color'>
+          <input type='text' ng-model='main.dog.color' class='form-control'>
         </div>
         <div class='form-group'>
           <label class='form-control-label'>How old is {{main.dog.name}}:</label>
           <input type='number' class='form-control' ng-model='main.dog.age'>
         </div>
         <div class='form-group'>
-          <label class='form-control-label'>What State is {{main.dog.name}}:</label>
-          <select class='form-control' ng-model='main.dog.state'>
+          <label class='form-control-label'>State:</label>
+          <select ng-model='main.dog.state' class='form-control'>
             <option value='' selected disabled>Please Choose...</option>
             <option value='NE'>Nebraska</option>
-            <option value='IL'>Illinois</option>
             <option value='FL'>Florida</option>
+            <option value='IL'>Illinois</option>
           </select>
         </div>
-        <button ng-click='main.Next(main.dog,"s")'>Next</button>
-      </section>
-
-      <section ng-show='main.summary'>
-        <table class='table'>
-          <thead>
-            <tr>
-              <th>Edit</th>
-              <th>Name</th>
-              <th>Color</th>
-              <th>Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat='dogs in main.doglist'>
-              <td>
-                <button class='btn btn-danger' ng-click='main.Edit()'>Edit</button>
-              </td>
-              <td>{{dogs.name}}</td>
-              <td>{{dogs.color}}</td>
-              <td>{{dogs.email}}</td>
-            </tr>
-          </tbody>
-        </table>
-        <button class='btn btn-success' ng-click='main.Calculate()'>Calculate</button>
-      </section>
-      <section ng-show='main.finish'>
-        <h1>Policy Info</h1>
-      </section>
+      </div> -->
+      <input type='text' ng-model='main.name' placeholder='Name' class='form-control'>
+      <button ui-sref='form({name:main.name})'>Next</button>
 </div>

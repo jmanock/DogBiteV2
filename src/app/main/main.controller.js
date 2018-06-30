@@ -6,30 +6,34 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr, $scope, $state, $log) {
+  function MainController($timeout, webDevTec, toastr) {
     var vm = this;
-    
-    vm.test = function(){
-      $scope.myCheck = true;
-      $scope.nextCheck = true;
-      vm.personInfo = true;
-      vm.dogInfo = true;
-    };
 
-    vm.Next = function(){
-      vm.personInfo = true;
-      vm.dogInfo = true;
-    };
+    vm.awesomeThings = [];
+    vm.classAnimation = '';
+    vm.creationDate = 1530384314837;
+    vm.showToastr = showToastr;
 
-    $scope.title='UI-Router';
-    $scope.tabs = ['tab1', 'tab2'];
-    $scope.currentIndex = 0;
-    $scope.maxIndex = $scope.tabs.length;
-    $scope.transition = 'slide-left';
+    activate();
 
-    vm.next = function(){
-      $log.log('hi');
-    };
+    function activate() {
+      getWebDevTec();
+      $timeout(function() {
+        vm.classAnimation = 'rubberBand';
+      }, 4000);
+    }
 
-      }
+    function showToastr() {
+      toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
+      vm.classAnimation = '';
+    }
+
+    function getWebDevTec() {
+      vm.awesomeThings = webDevTec.getTec();
+
+      angular.forEach(vm.awesomeThings, function(awesomeThing) {
+        awesomeThing.rank = Math.random();
+      });
+    }
+  }
 })();

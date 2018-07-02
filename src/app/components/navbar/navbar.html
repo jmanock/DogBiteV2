@@ -1,21 +1,17 @@
-<nav class="navbar navbar-static-top navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="https://github.com/Swiip/generator-gulp-angular">
-        <span class="glyphicon glyphicon-home"></span> Gulp Angular
-      </a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
-      <ul class="nav navbar-nav">
-        <li class="active"><a ng-href="#">Home</a></li>
-        <li><a ng-href="#">About</a></li>
-        <li><a ng-href="#">Contact</a></li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right acme-navbar-text">
-        <li>Application was created {{ vm.relativeDate }}.</li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<header class='header'>
+  <nav class='navbar navbar-expand-lg navbar-light bg-light'>
+    <a class='navbar-brand' ui-sref='home'>
+      <img src='../../../assets/images/DogBiteLogo.png' alt='Logo' class='img-circle' height='100px'>Dog Liability Insurance</a>
+      <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle Navigation'>
+        <span class='collapse navbar-collapse'></span>
+      </button>
+      <div class='collapse navbar-collapse' id='navbarNavAltMarkup'>
+        <div class='navbar-nav'>
+          <a class='nav-item nav-link' ui-sref='form'><i class='fa fa-plus-circle'></i> New Quote</a>
+          <a class='nav-item nav-link' ui-sref='about'><i class='fa fa-paw'></i> About</a>
+          <a class='nav-item nav-link' ui-sref='questions'><i class='fa fa-question-circle'></i> F.A.Q. </a>
+          <a class='nav-item nav-link' href='tel:8555346495'><i class='fa fa-phone-square'></i> 855.534.6495</a>
+        </div>
+      </div>
+    </nav>
+  </header>

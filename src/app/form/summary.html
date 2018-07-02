@@ -1,0 +1,105 @@
+<acme-navbar></acme-navbar>
+<div class='container'>
+  <h1>{{summary.title}}</h1>
+  <div class='progress'>
+    <div class='progess-bar progress-bar-striped' ng-style="{'width':summary.currentPercentage + '%'}" role='progressbar'>
+      <span>{{summary.currentPercentage}}% Complete</span>
+    </div>
+  </div>
+  <section ng-hide='summary.summary'>
+    <button class='btn btn-success addDog' ng-click='summary.Edit("New")'><span class='fa fa-plus-circle'></span> Add Dog</button>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Edit</th>
+          <th>Dog's Name</th>
+          <th>Breed</th>
+          <th>Eligible</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat='d in summary.dogList'>
+          <td>
+            <button ng-click='summary.Edit("Edit", d)' class='btn btn-success'><span class='fa fa-pencil'></span> Edit</button>
+          </td>
+          <td>{{d.name | uppercase}}</td>
+          <td>{{d.breed}}</td>
+          <td>Please calculate to determine eligibility</td>
+          <td>
+            <button ng-click='summary.Remove($index)' class='btn btn-danger'><span class='fa fa-trash'></span> Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Additional Insureds ($50 each)</h3>
+    <small>Examples include: landlord, employer, and governmental entity</small>
+    <div class='form-group'>
+      <label class='form-control-label'>Select the total number of additional insureds: <span title='If you rent, the owners and/or property manager may request to be added as an additional insured. If your dog injures a person or animal then the defense costs are covered. More towns and cities are requiring insurance to provide medical care of their citizens' class='fa fa-question' ng-click='summary.question("If you rent, the owners and/or property manager may request to be added as an additional insured. If your dog injures a person or animal then the defense costs are covered. More towns and cities are requiring insurance to provide medical care of their citizens")'></span></label>
+      <select class='form-control' ng-model='summary.addInsured'>
+        <option value='' selected disabled>Please Choose...</option>
+        <option value='0'>0</option>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+      </select>
+    </div>
+
+    <button class='btn btn-success' ui-sref='insurance({dog:summary.dogList, insurance:summary.addInsured})'>Calculate</button>
+  </section>
+  <section ng-show='summary.addEdit'>
+    <form class='form-horizonatal'>
+      <div class='form-row'>
+        <div class='form-group col-md-4'>
+          <label class='form-control-label'>Dog's Name:</label>
+          <input type='text' ng-model='summary.dogs.name' class='form-control'>
+        </div>
+        <div class='form-group col-md-4'>
+          <label class='form-control-label'>Email:</label>
+          <input type='email' ng-model='summary.dogs.email' class='form-control'>
+        </div>
+        <div class='form-group col-md-4'>
+          <label class='form-control-label'>What color is your dog:</label>
+          <input type='text' class='form-control' ng-model='summary.dogs.color'>
+        </div>
+        <div class='form-group col-md-4'>
+          <label class='form-control-label'>How old is your dog:</label>
+          <input type='number' class='form-control' ng-model='summary.dogs.age'>
+        </div>
+        <div class='form-group col-md-4'>
+          <label class='form-control-label'>What breed is your dog:</label>
+          <select class='form-control' ng-model='summary.dogs.breed' ng-options='item for item in summary.breeds'>
+            <option value='' selected disabled>Please Choose...</option>
+          </select>
+        </div>
+        <div class='form-group col-md-4'>
+          <label class='form-control-label'>State:</label>
+          <select class='form-control' ng-model='summary.dogs.state' ng-options='items for items in summary.states'>
+            <option value='' selected disabled>Please Choose...</option>
+          </select>
+        </div>
+        <div class='form-group col-md-4'>
+          <label class='form-control-label'>Do you take your dog to off leash dog parks:</label>
+          <select class='form-control' ng-model='summary.dogs.parks'>
+            <option value='' selected disabled>Please Choose...</option>
+            <option value='Yes'>Yes</option>
+            <option value='No'>No</option>
+          </select>
+        </div>
+        <div class='form-group col-md-4'>
+          <label class='form-control-label'>What gender is your dog:</label>
+          <select class='form-control' ng-model='summary.dogs.gender'>
+            <option value='' selected disabled>Please Choose...</option>
+            <option value='Male'>Male</option>
+            <option value='Female'>Female</option>
+          </select>
+        </div>
+      </div>
+
+      <div class='form-row'>
+        <div class='form-group col-md-4'>
+          <label class='form-control-label'>
+</div>
+<acme-footer></acme-footer>

@@ -20,7 +20,7 @@
 
     function FooterController($window){
       var vm = this;
-      vm.top = function(){
+      vm.Top = function(){
         $window.scrollTo(0,0);
       }
     }

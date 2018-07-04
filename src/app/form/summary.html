@@ -1,8 +1,7 @@
 <acme-navbar></acme-navbar>
 <div class='container'>
-  <h1>{{summary.title}}</h1>
   <div class='progress'>
-    <div class='progess-bar progress-bar-striped' ng-style="{'width':summary.currentPercentage + '%'}" role='progressbar'>
+    <div class='progress-bar progress-bar-striped' ng-style="{'width':summary.currentPercentage + '%'}" role='progressbar'>
       <span>{{summary.currentPercentage}}% Complete</span>
     </div>
   </div>
@@ -21,22 +20,22 @@
       <tbody>
         <tr ng-repeat='d in summary.dogList'>
           <td>
-            <button ng-click='summary.Edit("Edit", d)' class='btn btn-success'><span class='fa fa-pencil'></span> Edit</button>
+            <button ng-click='summary.Edit("Edit", d)' class='btn bt-success'><span class='fa fa-pencil'></span> Edit</button>
           </td>
           <td>{{d.name | uppercase}}</td>
-          <td>{{d.breed}}</td>
-          <td>Please calculate to determine eligibility</td>
+          <td>{{d.state}}</td>
+          <td>Please Calculate to determine eligibility</td>
           <td>
-            <button ng-click='summary.Remove($index)' class='btn btn-danger'><span class='fa fa-trash'></span> Remove</button>
+            <button class='btn btn-danger' ng-click='summary.Remove($index)'><span class='fa fa-trash'></span> Remove</button>
           </td>
         </tr>
       </tbody>
     </table>
-    <h3>Additional Insureds ($50 each)</h3>
+    <h3>Addition Insureds ($50 each)</h3>
     <small>Examples include: landlord, employer, and governmental entity</small>
     <div class='form-group'>
-      <label class='form-control-label'>Select the total number of additional insureds: <span title='If you rent, the owners and/or property manager may request to be added as an additional insured. If your dog injures a person or animal then the defense costs are covered. More towns and cities are requiring insurance to provide medical care of their citizens' class='fa fa-question' ng-click='summary.question("If you rent, the owners and/or property manager may request to be added as an additional insured. If your dog injures a person or animal then the defense costs are covered. More towns and cities are requiring insurance to provide medical care of their citizens")'></span></label>
-      <select class='form-control' ng-model='summary.addInsured'>
+      <label calss='form-control-label'>Select the total number of additional insureds: <span title='If you rent, the owners and/or property manager may request to be added as an additional insured. If your dog injures a person or animal then the defense costs are covered. More towns and cities are requiring insurance to provide medical care of their citizens' class='fa fa-question' ng-click='summary.Question("If you rent, the owners and/or property manager may request to be added as an additional insured. If your dog injures a person or animal then the defense costs are covered. More towns and cities are requiring insurance to provide medical care of their citizens")'></span></label>
+      <select class='form-control' ng-model='summary.addInsured' ng-change='summary.change(summary.addInsured)'>
         <option value='' selected disabled>Please Choose...</option>
         <option value='0'>0</option>
         <option value='1'>1</option>
@@ -46,349 +45,30 @@
         <option value='5'>5</option>
       </select>
     </div>
-
-    <button class='btn btn-success' ui-sref='insurance({dog:summary.dogList, insurance:summary.addInsured})'>Calculate</button>
-  </section>
-
-  <section ng-show='summary.application'>
-    <form>
-      <div class='form-row'>
-        <div class='form-group col-md-6'>
-          <label class='form-control-label'>Interest Name:</label>
-          <input type='text' ng-model='summary.addInsured.name' class='form-control' placeholder='Name'>
-        </div>
-        <div class='form-group col-md-6'>
-          <label class='form-control-label'>Relationship:</label>
-          <select class='form-control' ng-model='summary.addInsured.relationship'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Landlord'>Landlord</option>
-            <option value='Employer'>Employer</option>
-            <option value='Government'>Governmental Entity</option>
-            <option value='Other'>Other</option>
-          </select>
-        </div>
-      </div>
-      <div class='form-group'>
-        <label class='form-control-label'>Address:</label>
-        <input type='text' class='form-control' ng-model='summary.addInsured.address' placeholder='1234 Main St.'>
-      </div>
-      <div class='form-group'>
-        <label class='form-control-label'>Address 2:</label>
-        <input type='text' class='form-control' ng-model='summary.addInsured.address2' placeholder='Apartment, studio, or floor'>
-      </div>
-      <div class='form-row'>
-        <div class='form-group col-md-6'>
-          <label class='form-control-label'>City:</label>
-          <input type='text' class='form-control' ng-model='summary.addInsured.city'>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>State:</label>
-          <select class='form-control' ng-model='summary.addInsured.state' ng-options='item for item in summary.states'>
-            <option value='' selected disabled>Please Choose...</option>
-          </select>
-        </div>
-        <div class='form-group col-md-2'>
-          <label class='form-control-label'>Zip:</label>
-          <input type='number' class='form-control' ng-model='summary.addInsured.zip'>
-        </div>
-      </div>
-      <div class='form-row'>
-        <div class='form-group col-md-6'>
-          <label class='form-control-label'>Contact First Name:</label>
-          <input type='text' class='form-control' ng-model='summary.addInsured.cFirstName'>
-        </div>
-        <div class='form-group col-md-6'>
-          <label class='form-control-label'>Contact Last Name:</label>
-          <input type='text' class='form-control' ng-model='summary.addInsured.cLastName'>
-        </div>
-      </div>
-      <div class='form-row'>
-        <div class='form-group col-md-7'>
-          <label class='form-control-label'>Contact Email:</label>
-          <input type='email' class='form-control' ng-model='summary.addInsured.email'>
-        </div>
-        <div class='form-group col-md-5'>
-          <label class='form-control-label'>Contact Phone Number:</label>
-          <input type='number' class='form-control' ng-model='summary.addInsured.phoneNumber'>
-        </div>
-      </div>
-    </form>
+    <button class='btn btn-success' ui-sref='insurance({dog:summary.dogList, ins:summary.addInsured})'><span class='fa fa-paw'></span> Calculate</button>
   </section>
 
   <section ng-show='summary.addEdit'>
-    <form class='form-horizonatal'>
-      <div class='form-row'>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Dog's Name:</label>
-          <input type='text' ng-model='summary.dogs.name' class='form-control'>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Email:</label>
-          <input type='email' ng-model='summary.dogs.email' class='form-control'>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>What color is your dog:</label>
-          <input type='text' class='form-control' ng-model='summary.dogs.color'>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>How old is your dog:</label>
-          <input type='number' class='form-control' ng-model='summary.dogs.age'>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>What is the weight of your dog:</label>
-          <div class='input-group'>
-            <input type='number' ng-model='summary.dogs.age' class='form-control' aria-label='Dogs Weight' aria-describeby='basic'>
-            <div class='input-group-append'>
-              <span class='input-group-text' id='basic'>LBs</span>
-            </div>
-          </div>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>What breed is your dog:</label>
-          <select class='form-control' ng-model='summary.dogs.breed' ng-options='item for item in summary.breeds'>
-            <option value='' selected disabled>Please Choose...</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>State:</label>
-          <select class='form-control' ng-model='summary.dogs.state' ng-options='items for items in summary.states'>
-            <option value='' selected disabled>Please Choose...</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Do you take your dog to off leash dog parks:</label>
-          <select class='form-control' ng-model='summary.dogs.parks'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Yes'>Yes</option>
-            <option value='No'>No</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>What gender is your dog:</label>
-          <select class='form-control' ng-model='summary.dogs.gender'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Male'>Male</option>
-            <option value='Female'>Female</option>
-          </select>
-        </div>
+    <form class='form-horizontal'>
+      <div class='form-group'>
+        <label class='form-control-label'>Dog's Name:</label>
+        <input type='text' ng-model='summary.dogs.name' class='form-control'>
       </div>
-
-      <div class='form-row'>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Has your dog ever been involved with animal service:</label>
-          <select class='form-control' ng-model='summary.dogs.animalService'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Never'>Never</option>
-            <option value='Once'>Once for breaking the law</option>
-            <option value='Confiscated'>Confiscated and/or fines were issued</option>
-            <option value='Labled'>Been labled dangerous or vicious</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Where does your dog go for relef/potty most of the time:</label>
-          <select class='form-control' ng-model='summary.dogs.bathroom'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Inside Fenced'>Inside a completely fenced in yard or kennel</option>
-            <option value='Electric System'>Underground electric dog containment system</option>
-            <option value='Outside Loose'>Outside loose in unfenced yard</option>
-            <option value='Permanently Tied'>Permanently tied/teather outside</option>
-            <option value='Leashed'>Leashed walked</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>What type of training or work odes your dog have:</label>
-          <select class='form-control' ng-model='summary.dogs.training'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='None'>None or basic</option>
-            <option value='Intermediate'>Intermediate</option>
-            <option value='Advanced'>Advanced</option>
-            <option value='Therapy'>Therapy dog</option>
-            <option value='Hunting'>Hunting, gun, sporting off leash, farm, hearding</option>
-            <option value='Sled'>Sled dog racing, musing for hire, firefighting</option>
-            <option value='War'>War or police service dog, professional trained personal protection or professional trained guard dog</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Do you take your dog to a veterinarian:</label>
-          <select class='form-control' ng-model='summary.dogs.veterinarian'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Never'>Never</option>
-            <option value='Annually'>Annually and would treat for illness</option>
-            <option value='Required'>Only as required by law</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>What area do you live in:</label>
-          <select class='form-control' ng-model='summary.dogs.area'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='City'>City, town, suburb, campus</option>
-            <option value='County'>Country and/or your dog travels with you</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Do you breed your dog:</label>
-          <select class='form-control' ng-model='summary.dogs.doesBreed'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='No'>No</option>
-            <option value='Stud'>Stud</option>
-            <option value='1 Annually'>1 litter annually</option>
-            <option value='2 Annually'>2 litters annually</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Are there children, under the age of 16 living with you the majority of the time:</label>
-          <select class='form-control' ng-model='summary.dogs.children'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='No'>No</option>
-            <option value='Yes'>Yes</option>
-            <option value='Daycare'>Daycare or babysitting service in the home</option>
-            <option value='Foster'>Foster children in the home</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Have any residents of your household been convicted of animal or domestic abuse in the last 5 years:</label>
-          <select class='form-control' ng-model='summary.dogs.abuse'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Yes'>Yes</option>
-            <option value='No'>No</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Is your dog involved or integral in your work as a therapist, teacher, counselor, or other similar:</label>
-          <select class='form-control' ng-model='summary.dogs.involvedWork'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Yes'>Yes</option>
-            <option value='No'>No</option>
-          </select>
-          <div ng-if='summary.dogs.involvedWork === "Yes" ? true : false'>
-            <div class='form-group'>
-              <label class='form-control-label'>What is your occupation:</label>
-              <input type='text' class='form-control' ng-model='summary.dogs.occupation'>
-            </div>
-          </div>
-        </div>
+      <div class='form-group'>
+        <label class='form-control-label'>Email:</label>
+        <input type='email' ng-model='summary.dogs.email' class='form-control'>
       </div>
-
-      <div class='form-row'>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Do you take your dog to work regularly:</label>
-          <select class='form-control' ng-model='summary.dogs.work'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Yes'>Yes</option>
-            <option value='No'>No</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Total number of dogs in your home:</label>
-          <select class='form-control' ng-model='summary.dogs.dogsHome'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='1'>1</option>
-            <option value='2 to 4'>2 to 4</option>
-            <option value='5 or More'>5 or more</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Where does your dog sleep:</label>
-          <select class='form-control' ng-model='summary.dogs.sleep'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Inside'>Inside</option>
-            <option value='Garage'>Garage</option>
-            <option value='Loose Fenced'>Outside loose in fenced yard</option>
-            <option value='Without Restraints'>Outside without any restraints</option>
-            <option value='Permanent Outside'>Permanent outside kennel</option>
-            <option value='Tied Out'>Tied out</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Is your dog current on licenses, vaccinations, and other such requirments in your area:</label>
-          <select class='form-control' ng-model='summary.dogs.vaccinations'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Yes'>Yes</option>
-            <option value='No'>No</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Is your dog in a foster arrangement where the owner has been deployed:</label>
-          <select class='form-control' ng-model='summary.dogs.foster'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Yes'>Yes</option>
-            <option value='No'>No</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Is your dog in your home with the intent that he/she will be adopted:</label>
-          <select class='form-control' ng-model='summary.dogs.adopted'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Yes'>Yes</option>
-            <option value='No'>No</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>What is your dogs reproductive status:</label>
-          <select class='form-control' ng-model='summary.dogs.reproductive'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Intact'>Intact</option>
-            <option value='Neutered'>Neutered - male</option>
-            <option value='Spayed'>Spated - female</option>
-          </select>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Has your dog ever injured another animal:</label>
-          <select class='form-control' ng-model='summary.dogs.animalInjury'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Never'>Never</option>
-            <option value='Injured Animal'>Injured another animal</option>
-            <option value='Killed Animal'>Killed another animal</option>
-            <option value='Injured More'>Injured more than one animal</option>
-            <option value='Killed More'>Killed more than one animal</option>
-          </select>
-          <div ng-if='summary.dogs.animalInjury === "Injured More" || summary.dogs.animalInjury === "Killed More" ? true : false'>
-            <div class='form-group'>
-              <label class='form-control-label'>Please describe each event in detail:</label>
-              <textarea class='form-control' ng-model='summary.dogs.describeAnimalInjury' rows='10' cols='30'></textarea>
-            </div>
-            <div class='form-group'>
-              <label class='form-control-label'>What fines, restrictions, specific requierments were mandated as a result of each event:</label>
-              <textarea class='form-control' ng-model='summary.dogs.finesAnimalInjury' rows='10' cols='30'></textarea>
-            </div>
-            <div class='form-group'>
-              <label class='form-control-label'>What changes have you made to prevent similar events:</label>
-              <textarea class='form-control' ng-model='summary.dogs.changesAnimalInjury' rows='10' cols='30'></textarea>
-            </div>
-          </div>
-        </div>
-        <div class='form-group col-md-4'>
-          <label class='form-control-label'>Has your dog ever injured a human:</label>
-          <select class='form-control' ng-model='summary.dogs.humanInjury'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Never'>Never</option>
-            <option value='Injured Child'>Injured a child - leaving minor brusing, scratching but no broken skin - one time</option>
-            <option value='Injured Adult'>Injured an adult - leaving minor brusing, scratching but no broken skin - one time</option>
-            <option value='Child Breaking Skin'>Injured a child - breaking skin, no permanent scarring</option>
-            <option value='Adult Breaking Skin'>Injured an adult - breaking skin, no permanent scarring</option>
-            <option value='Child Medical Attention'>Injured a child - requiring medical attention and/or stitches</option>
-            <option value='Adult Medical Attention'>Injured an adult - requiring medical attention and/or stitches</option>
-            <option value='Child More'>Injured a child - more than once</option>
-            <option value='Adult More'>Injured an adult - more than once</option>
-          </select>
-          <div ng-if='summary.dogs.humanInjury === "Child Medical Attention" || summary.dogs.humanInjury === "Adult Medical Attention" ? true : false'>
-            <div class='form-group'>
-              <label class='form-control-label'>Please describe each event in detail:</label>
-              <textarea class='form-control' ng-model='summary.dogs.describeHumanInjury' rows='10' cols='30'></textarea>
-            </div>
-            <div class='form-group'>
-              <label class='form-control-label'>What fines, restrictions, specific requierments were mandated as a result of each event:</label>
-              <textarea class='form-control' ng-model='summary.dogs.finesHumanInjury' rows='10' cols='30'></textarea>
-            </div>
-            <div class='form-group'>
-              <label class='form-control-label'>What changes have you made to prevent similar events:</label>
-              <textarea class='form-control' ng-model='summary.dogs.changesHumanInjury' rows='10' cols='30'></textarea>
-            </div>
-          </div>
-        </div>
+      <div class='form-group'>
+        <label class='form-control-label'>State:</label>
+        <select class='form-control' ng-model='summary.dogs.state' ng-options='item for item in summary.states'>
+          <option value='' selected disabled>Please Choose...</option>
+        </select>
       </div>
     </form>
-    <button class='btn btn-default' ng-click='summary.Save(summary.dogs)'>Save</button>
+    <button class='btn btn-default' ng-click='summary.Save(summary.doggie)'>Save</button>
+  </section>
+
+  <section ng-show='summary.Insured'>
   </section>
 </div>
 <acme-footer></acme-footer>

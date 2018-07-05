@@ -1,5 +1,6 @@
 <acme-navbar></acme-navbar>
 <div class='container'>
+  <h1>{{summary.title}}</h1>
   <div class='progress'>
     <div class='progress-bar progress-bar-striped' ng-style="{'width':summary.currentPercentage + '%'}" role='progressbar'>
       <span>{{summary.currentPercentage}}% Complete</span>
@@ -45,13 +46,20 @@
         <option value='5'>5</option>
       </select>
     </div>
-    <!-- <button class='btn btn-success' ui-sref='insurance({dog:summary.dogList, ins:summary.addInsured})'><span class='fa fa-paw'></span> Calculate</button> -->
-    <button class='btn btn-success' ng-click='summary.Change(summary.addInsured)'><span class='fa fa-paw'></span> Next</button>
+
+    <div ng-if='summary.addInsured === "0" ? true : false'>
+      <button class='btn btn-danger' ui-sref='insurance({dog:summary.dogList})'><span class='fa fa-paw'></span> Calculate</button>
+    </div>
+    <div ng-if='summary.addInsured > "0" ? true : false'>
+      <button class='btn btn-success' ng-click='summary.Change(summary.addInsured)'><span class='fa fa-paw'></span> Calculate</button>
+    </div>
   </section>
 
   <section ng-show='summary.Insured'>
     <form class='form-horizontal' id='insForm'>
     </form>
+    <button class='btn btn-success' ui-sref='Insurance({dog:summary.dogList, ins:summary.additionalInsurance})'><span class='fa fa-paw'></span> Calculate</button>
+    <button class='btn btn-default' ng-click='summary.Back()'><span class='fa fa-paw'></span> Back</button>
   </section>
 
   <section ng-show='summary.addEdit'>

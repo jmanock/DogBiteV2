@@ -61,10 +61,16 @@
       vm.dogList.splice(index, 1);
     };
 
+    vm.Back = function(){
+      vm.Insured = false;
+      vm.summary = false;
+      $('#insForm').empty();
+    }
+
     vm.Change = function(x){
       vm.Insured = true;
       vm.summary = true;
-      // Need to think about what to do if its 0
+
       for(var i = 1; i<=x; i++){
         $('#insForm').append(
           "<div class='form-group'>"+

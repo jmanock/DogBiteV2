@@ -73,6 +73,9 @@
 
       for(var i = 1; i<=x; i++){
         $('#insForm').append(
+          '<h1 class="num">'+i+')'+'</h1>'
+        );
+        $('#insForm').append(
           "<div class='form-group'>"+
             "<label class='form-control-label'>Interest Name:</label>"+
             "<input type='text' class='form-control' ng-model='summary.additionalInsured.interestName"+i+"'>"+

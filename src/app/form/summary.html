@@ -45,7 +45,8 @@
         <option value='5'>5</option>
       </select>
     </div>
-    <button class='btn btn-success' ui-sref='insurance({dog:summary.dogList, ins:summary.addInsured})'><span class='fa fa-paw'></span> Calculate</button>
+    <!-- <button class='btn btn-success' ui-sref='insurance({dog:summary.dogList, ins:summary.addInsured})'><span class='fa fa-paw'></span> Calculate</button> -->
+    <button class='btn btn-success' ng-click='summary.Change(summary.addInsured)'><span class='fa fa-paw'></span> Next</button>
   </section>
 
   <section ng-show='summary.addEdit'>

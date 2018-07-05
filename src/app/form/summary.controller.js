@@ -62,7 +62,10 @@
     };
 
     vm.Change = function(x){
-      // X should be the number of forms to fill out
+      for(var i = 0; i<x; i++){
+        $log.log('Welcome',i);
+        // This should add how many forms to fill out
+      }
     };
 
   }

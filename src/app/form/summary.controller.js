@@ -62,9 +62,11 @@
     };
 
     vm.Change = function(x){
+      vm.Insured = true;
+      vm.summary = true;
       for(var i = 0; i<x; i++){
-        $log.log('Welcome',i);
         // This should add how many forms to fill out
+        $('#insForm').append('<h1>Welcome</h1>');
       }
     };
 

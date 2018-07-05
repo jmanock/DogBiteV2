@@ -64,9 +64,13 @@
     vm.Change = function(x){
       vm.Insured = true;
       vm.summary = true;
-      for(var i = 0; i<x; i++){
-        // This should add how many forms to fill out
-        $('#insForm').append('<h1>Welcome</h1>');
+      // Need to think about what to do if its 0
+      for(var i = 1; i<=x; i++){
+        $('#insForm').append(
+          "<div class='form-group'>"+
+          "<label class='form-control-label'>Interest Name:</label>"+
+          "<input type='text' class='form-control' ng-model='summary.additionalInsured.interestName"+i+"'>"
+        )
       }
     };
 

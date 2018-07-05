@@ -49,6 +49,11 @@
     <button class='btn btn-success' ng-click='summary.Change(summary.addInsured)'><span class='fa fa-paw'></span> Next</button>
   </section>
 
+  <section ng-show='summary.Insured'>
+    <form class='form-horizontal' id='insForm'>
+    </form>
+  </section>
+
   <section ng-show='summary.addEdit'>
     <form class='form-horizontal'>
       <div class='form-group'>
@@ -67,9 +72,6 @@
       </div>
     </form>
     <button class='btn btn-default' ng-click='summary.Save(summary.dogs)'>Save</button>
-  </section>
-
-  <section ng-show='summary.Insured' id='insForm'>
   </section>
 </div>
 <acme-footer></acme-footer>

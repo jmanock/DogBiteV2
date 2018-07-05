@@ -68,10 +68,54 @@
       for(var i = 1; i<=x; i++){
         $('#insForm').append(
           "<div class='form-group'>"+
-          "<label class='form-control-label'>Interest Name:</label>"+
-          "<input type='text' class='form-control' ng-model='summary.additionalInsured.interestName"+i+"'>"
-        )
-      }
+            "<label class='form-control-label'>Interest Name:</label>"+
+            "<input type='text' class='form-control' ng-model='summary.additionalInsured.interestName"+i+"'>"+
+          "</div>"
+        );
+        $('#insForm').append(
+          "<div class='form-group'>"+
+            "<label class='form-control-label'>Relationship:</label>"+
+            "<select class='form-control' ng-model='summary.additionalInsured.relationship" +i+"'>"+
+              "<option value='' selected disabled>Please Choose...</option>"+
+              "<option value='Landlord'>Landlord</option>"+
+              "<option value='Employer'>Employer</option>"+
+              "<option value='Government'>Governmental Entity</option>"+
+              "<option value='Other'>Other</option>"+
+            "</select>"+
+          "</div>"
+        );
+        $('#insForm').append(
+          "<div class='form-group'>"+
+            "<label class='form-control-label'>Address:</label>"+
+            "<input class='form-control' type='text' placeholder='1234 Main St.' ng-model='summary.additionalInsured.address"+i+"'>"+
+          "</div>"
+        );
+        $('#insForm').append(
+          "<div class='form-group'>"+
+            "<label class='form-control-label'>Address 2:</label>"+
+            "<input type='text' class='form-control' placeholder='Apartment, studio, or floor' ng-model='summary.additionalInsured.address2"+i+"'>"+
+          "</div>"
+        );
+        $('#insForm').append(
+          "<div class='form-row'>"+
+            "<div class='form-group col-md-6'>"+
+              "<label class='form-control-label'>City:</label>"+
+              "<input type='text' class='form-control' ng-model='summary.additionalInsured.city"+i+"'>"+
+            "</div>"+
+            "<div class='form-group col-md-4'>"+
+              "<label class='form-control-label'>State:</label>"+
+              "<select class='form-control' ng-model='summary.additionalInsured.state"+i+"' ng-options='item for item in summary.states'>"+
+                "<option value='' selected disabled>Please Choose...</option>"+
+              "</select>"+
+            "</div>"+
+            "<div class='form-group col-md-2'>"+
+              "<label class='form-control-label'>Zip:</label>"+
+              "<input type='number' class='form-control' ng-model='summary.additionalInsured.zip"+i+"'>"+
+            "</div>"+
+          "</div>"
+        );
+      };
+
     };
 
   }

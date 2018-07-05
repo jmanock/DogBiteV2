@@ -105,12 +105,36 @@
             "<div class='form-group col-md-4'>"+
               "<label class='form-control-label'>State:</label>"+
               "<select class='form-control' ng-model='summary.additionalInsured.state"+i+"' ng-options='item for item in summary.states'>"+
-                "<option value='' selected disabled>Please Choose...</option>"+
+                "<option selected disabled>Please Choose...</option>"+
               "</select>"+
             "</div>"+
             "<div class='form-group col-md-2'>"+
               "<label class='form-control-label'>Zip:</label>"+
               "<input type='number' class='form-control' ng-model='summary.additionalInsured.zip"+i+"'>"+
+            "</div>"+
+          "</div>"
+        );
+        $('#insForm').append(
+          "<div class='form-row'>"+
+            "<div class='form-group col-md-6'>"+
+              "<label class='form-control-label'>Contact First Name:</label>"+
+              "<input type='text' class='form-control' ng-model='summary.additionalInsured.contactFirstName"+i+"'>"+
+            "</div>"+
+            "<div class='form-group col-md-6'>"+
+              "<label class='form-control-label'>Contact Last Name:</label>"+
+              "<input type='text' class='form-control' ng-model='summary.additionalInsured.contactLastName"+i+"'>"+
+            "</div>"+
+          "</div>"
+        );
+        $('#insForm').append(
+          "<div class='form-row'>"+
+            "<div class='form-group col-md-8'>"+
+              "<label class='form-control-label'>Email:</label>"+
+              "<input type='email' class='form-control' ng-model='summary.additionalInsured.contactEmail"+i+"'>"+
+            "</div>"+
+            "<div class='form-group col-md-4'>"+
+              "<label class='form-control-label'>Phone #:</label>"+
+              "<input type='number' class='form-control' ng-model='summary.additionalInsured.contactPhone"+i+"'>"+
             "</div>"+
           "</div>"
         );

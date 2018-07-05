@@ -104,8 +104,9 @@
             "</div>"+
             "<div class='form-group col-md-4'>"+
               "<label class='form-control-label'>State:</label>"+
-              "<select class='form-control' ng-model='summary.additionalInsured.state"+i+"' ng-options='item for item in summary.states'>"+
+              "<select class='form-control' ng-model='summary.additionalInsured.state"+i+"' >"+
                 "<option selected disabled>Please Choose...</option>"+
+                
               "</select>"+
             "</div>"+
             "<div class='form-group col-md-2'>"+
@@ -140,11 +141,18 @@
         );
       };
 
-    };
+    }; // End `Change`
 
   }
 })();
+$(document).ready(function(){
+  var something;
+  $(states).each(function(x,y){
+    something = "<option value='"+y+"'>"+y+"</option>";
 
+  });
+
+});
 var states = [
   'Alabama',
   'Arizona',

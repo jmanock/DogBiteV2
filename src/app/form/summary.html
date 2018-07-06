@@ -47,26 +47,32 @@
       </select>
     </div>
 
-    <div ng-if='summary.addInsured === "0" ? true : false'>
+    <!-- <div ng-if='summary.addInsured === "0" ? true : false'>
       <button class='btn btn-danger' ui-sref='insurance({dog:summary.dogList})'><span class='fa fa-paw'></span> Calculate</button>
     </div>
     <div ng-if='summary.addInsured > "0" ? true : false'>
       <button class='btn btn-success' ng-click='summary.Change(summary.addInsured)'><span class='fa fa-paw'></span> Calculate</button>
-    </div>
-  </section>
-
-  <section ng-show='summary.Insured'>
-    <form class='form-horizontal' name='myForm'>
-      <div ng-repeat='i in summary.getNumber(summary.myNumber) track by $index'>
-        <input type='text' placeholder='Name'>
+    </div> -->
+    <form class='form-horizontal'>
+      <div class='form-control' ng-repeat='i in summary.getNumber(summary.addInsured) track by $index'>
+        <input type='text' class='form-control' ng-model='summary.additionalInsured'>
       </div>
     </form>
+  </section>
+
+  <!-- <section ng-show='summary.Insured'>
+    <form class='form-horizontal' name='myForm'>
+      <div ng-repeat='i in summary.getNumber(summary.addInsured) track by $index'>
+        <label class='form-control-label'>{{$index}}</label>
+        <input type='text' placeholder='Name' ng-model='summary.additionalInsured.$index'>
+      </div>
+    </form> -->
 
     <!-- <button class='btn btn-success' ui-sref='Insurance({dog:summary.dogList, ins:summary.additionalInsurance})'><span class='fa fa-paw'></span> Calculate</button> -->
 
-    <button class='btn btn-success' ng-click='summary.Something(summary.additionalInsured)'>Something</button>
+    <!-- <button class='btn btn-success' ng-click='summary.Something(summary.additionalInsured)'>Something</button>
     <button class='btn btn-default' ng-click='summary.Back()'><span class='fa fa-paw'></span> Back</button>
-  </section>
+  </section> -->
 
   <section ng-show='summary.addEdit'>
     <form class='form-horizontal'>

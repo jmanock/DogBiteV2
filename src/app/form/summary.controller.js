@@ -71,17 +71,14 @@
       $('#insForm').empty();
     }
 
-    vm.Change = function(x){
+    vm.Change = function(){
       vm.Insured = true;
       vm.summary = true;
 
-      vm.myNumber = x;
-      $log.log(x);
-      vm.getNumber = function(num){
-        return new Array(num);
-      }
     }; // End `Change`
-
+    vm.getNumber = function(num){
+      return new Array(num);
+    };
   }
 })();
 

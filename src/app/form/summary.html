@@ -56,9 +56,15 @@
   </section>
 
   <section ng-show='summary.Insured'>
-    <form class='form-horizontal' id='insForm'>
+    <form class='form-horizontal' name='myForm'>
+      <div ng-repeat='i in summary.getNumber(summary.myNumber) track by $index'>
+        <input type='text' placeholder='Name'>
+      </div>
     </form>
-    <button class='btn btn-success' ui-sref='Insurance({dog:summary.dogList, ins:summary.additionalInsurance})'><span class='fa fa-paw'></span> Calculate</button>
+
+    <!-- <button class='btn btn-success' ui-sref='Insurance({dog:summary.dogList, ins:summary.additionalInsurance})'><span class='fa fa-paw'></span> Calculate</button> -->
+
+    <button class='btn btn-success' ng-click='summary.Something(summary.additionalInsured)'>Something</button>
     <button class='btn btn-default' ng-click='summary.Back()'><span class='fa fa-paw'></span> Back</button>
   </section>
 

@@ -36,15 +36,11 @@
     <small>Examples include: landlord, employer, and governmental entity</small>
     <div class='form-group'>
       <label calss='form-control-label'>Select the total number of additional insureds: <span title='If you rent, the owners and/or property manager may request to be added as an additional insured. If your dog injures a person or animal then the defense costs are covered. More towns and cities are requiring insurance to provide medical care of their citizens' class='fa fa-question' ng-click='summary.Question("If you rent, the owners and/or property manager may request to be added as an additional insured. If your dog injures a person or animal then the defense costs are covered. More towns and cities are requiring insurance to provide medical care of their citizens")'></span></label>
-      <select class='form-control' ng-model='summary.addInsured' ng-change='summary.change(summary.addInsured)'>
-        <option value='' selected disabled>Please Choose...</option>
-        <option value='0'>0</option>
-        <option value='1'>1</option>
-        <option value='2'>2</option>
-        <option value='3'>3</option>
-        <option value='4'>4</option>
-        <option value='5'>5</option>
+      <select class='form-control' ng-model='summary.quantity'>
+
+
       </select>
+      
     </div>
 
     <!-- <div ng-if='summary.addInsured === "0" ? true : false'>
@@ -53,11 +49,7 @@
     <div ng-if='summary.addInsured > "0" ? true : false'>
       <button class='btn btn-success' ng-click='summary.Change(summary.addInsured)'><span class='fa fa-paw'></span> Calculate</button>
     </div> -->
-    <form class='form-horizontal'>
-      <div class='form-control' ng-repeat='i in summary.getNumber(summary.addInsured) track by $index'>
-        <input type='text' class='form-control' ng-model='summary.additionalInsured'>
-      </div>
-    </form>
+
   </section>
 
   <!-- <section ng-show='summary.Insured'>

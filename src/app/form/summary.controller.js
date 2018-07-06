@@ -76,7 +76,11 @@
       vm.summary = true;
 
     }; // End `Change`
-    vm.getNumber = function(num){
+    vm.quantity = '1';
+    vm.available = '10';
+
+    vm.range = function(num){
+      num = parseInt(num);
       return new Array(num);
     };
   }

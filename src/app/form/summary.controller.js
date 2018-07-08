@@ -76,7 +76,7 @@
       vm.summary = true;
 
     }; // End `Change`
-    vm.quantity = '1';
+    vm.quantity = '0';
     vm.available = '10';
 
     vm.range = function(num){

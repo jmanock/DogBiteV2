@@ -43,11 +43,11 @@
         <h3>{{$index+1}}</h3>
         <div class='form-group'>
           <label class='form-control-label'>Interest Name:</label>
-          <input type='text' class='form-control' ng-model='summary.insured.interestName_$index'>
+          <input type='text' class='form-control' ng-model='summary.insured.interestName_[$index]'>
         </div>
         <div class='form-group'>
           <label class='form-control-label'>Relationship:</label>
-          <select ng-model='summary.insured.relationship_$index' class='form-control'>
+          <select ng-model='summary.insured.relationship_[$index]' class='form-control'>
             <option value='' selected disabled>Please Choose...</option>
             <option value='Landlord'>Landlord</option>
             <option value='Employer'>Employer</option>
@@ -57,49 +57,50 @@
         </div>
         <div class='form-group'>
           <label class='form-control-label'>Address:</label>
-          <input class='form-control' type='text' ng-model='summary.insured.address_$index'>
+          <input class='form-control' type='text' ng-model='summary.insured.address_[$index]'>
         </div>
         <div class='form-group'>
           <label class='form-control-label'>Address 2:</label>
-          <input type='text' class='form-control' ng-model='summary.insured.address2_$index'>
+          <input type='text' class='form-control' ng-model='summary.insured.address2_[$index]'>
         </div>
         <div class='form-row'>
           <div class='form-group col-md-6'>
             <label class='form-control-label'>City:</label>
-            <input type='text' class='form-control' ng-model='summary.insured.city_$index'>
+            <input type='text' class='form-control' ng-model='summary.insured.city_[$index]'>
           </div>
           <div class='form-group col-md-4'>
             <label class='form-control-label'>State:</label>
-            <select class='form-control' ng-model='summary.insured.state_$index' ng-options='item for item in summary.states'>
+            <select class='form-control' ng-model='summary.insured.state_[$index]' ng-options='item for item in summary.states'>
               <option value='' selected disabled>Please Choose...</option>
             </select>
           </div>
           <div class='form-group col-md-2'>
             <label class='form-control-label'>Zip:</label>
-            <input type='number' class='form-control' ng-model='summary.insured.zip_$index'>
+            <input type='number' class='form-control' ng-model='summary.insured.zip_[$index]'>
           </div>
         </div>
         <div class='form-row'>
           <div class='form-group col-md-6'>
             <label class='form-control-label'>Contact First Name:</label>
-            <input type='text' class='form-control' ng-model='summary.insured.contactFirstName_$index'>
+            <input type='text' class='form-control' ng-model='summary.insured.contactFirstName_[$index]'>
           </div>
           <div class='form-group col-md-6'>
             <label class='form-control-label'>Contact Last Name:</label>
-            <input type='text' class='form-control' ng-model='summary.insured.contactLastName_$index'>
+            <input type='text' class='form-control' ng-model='summary.insured.contactLastName_[$index]'>
           </div>
         </div>
         <div class='form-row'>
           <div class='form-group col-md-8'>
             <label class='form-control-label'>Email:</label>
-            <input type='email' class='form-control' ng-model='summary.insured.email_$index'>
+            <input type='email' class='form-control' ng-model='summary.insured.email_[$index]'>
           </div>
           <div class='form-group col-md-4'>
             <label class='form-control-label'>Phone #:</label>
-            <input type='number' class='form-control' ng-model='summary.insured.phone_$index'>
+            <input type='number' class='form-control' ng-model='summary.insured.phone_[$index]'>
           </div>
         </div>
     </div>
+    <button ng-click='summary.something(summary.insured, summary.dogList)' class='btn btn-success'>Something</button>
   </section>
 
   <section ng-show='summary.addEdit'>

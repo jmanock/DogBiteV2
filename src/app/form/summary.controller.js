@@ -77,11 +77,15 @@
 
     }; // End `Change`
     vm.quantity = '0';
+    // This needs to start before 0
     vm.available = '10';
 
     vm.range = function(num){
       num = parseInt(num);
       return new Array(num);
+    };
+    vm.something = function(x,y){
+      $log.log(x,y);
     };
   }
 })();

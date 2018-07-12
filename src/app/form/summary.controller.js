@@ -76,8 +76,7 @@
       vm.summary = true;
 
     }; // End `Change`
-    vm.quantity = '0';
-    // This needs to start before 0
+    vm.quantity = '';
     vm.available = '10';
 
     vm.range = function(num){

@@ -87,6 +87,7 @@
     vm.something = function(x,y){
       $log.log(x,y);
     };
+    $('.selects').prepend("<option value=''>Please choose...</option>").val('');
   }
 })();
 

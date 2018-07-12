@@ -36,7 +36,7 @@
     <small>Examples include: landlord, employer, and governmental entity</small>
     <div class='form-group'>
       <label calss='form-control-label'>Select the total number of additional insureds: <span title='If you rent, the owners and/or property manager may request to be added as an additional insured. If your dog injures a person or animal then the defense costs are covered. More towns and cities are requiring insurance to provide medical care of their citizens' class='fa fa-question' ng-click='summary.Question("If you rent, the owners and/or property manager may request to be added as an additional insured. If your dog injures a person or animal then the defense costs are covered. More towns and cities are requiring insurance to provide medical care of their citizens")'></span></label>
-      <select class='form-control' ng-model='summary.quantity'>
+      <select class='form-control selects' ng-model='summary.quantity'>
         <option ng-repeat='option in summary.range(summary.available) track by $index'>{{$index}}</option>
       </select>
       <div ng-repeat='c in summary.range(summary.quantity) track by $index'>

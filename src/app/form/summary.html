@@ -36,74 +36,18 @@
     <small>Examples include: landlord, employer, and governmental entity</small>
     <div class='form-group'>
       <label calss='form-control-label'>Select the total number of additional insureds: <span title='If you rent, the owners and/or property manager may request to be added as an additional insured. If your dog injures a person or animal then the defense costs are covered. More towns and cities are requiring insurance to provide medical care of their citizens' class='fa fa-question' ng-click='summary.Question("If you rent, the owners and/or property manager may request to be added as an additional insured. If your dog injures a person or animal then the defense costs are covered. More towns and cities are requiring insurance to provide medical care of their citizens")'></span></label>
-      <select class='form-control selects' ng-model='summary.quantity'>
-        <option ng-repeat='option in summary.range(summary.available) track by $index'>{{$index}}</option>
+      <select class='form-control' ng-model='summary.addInsured'>
+        <option value='' selected disabled>Please Choose...</option>
+        <option value='0'>0</option>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
       </select>
-      <div ng-repeat='c in summary.range(summary.quantity) track by $index'>
-        <h3>{{$index+1}}</h3>
-        <div class='form-group'>
-          <label class='form-control-label'>Interest Name:</label>
-          <input type='text' class='form-control' ng-model='summary.insured.interestName_[$index]'>
-        </div>
-        <div class='form-group'>
-          <label class='form-control-label'>Relationship:</label>
-          <select ng-model='summary.insured.relationship_[$index]' class='form-control'>
-            <option value='' selected disabled>Please Choose...</option>
-            <option value='Landlord'>Landlord</option>
-            <option value='Employer'>Employer</option>
-            <option value='Governmental'>Governmental Entity</option>
-            <option value='Other'>Other</option>
-          </select>
-        </div>
-        <div class='form-group'>
-          <label class='form-control-label'>Address:</label>
-          <input class='form-control' type='text' ng-model='summary.insured.address_[$index]'>
-        </div>
-        <div class='form-group'>
-          <label class='form-control-label'>Address 2:</label>
-          <input type='text' class='form-control' ng-model='summary.insured.address2_[$index]'>
-        </div>
-        <div class='form-row'>
-          <div class='form-group col-md-6'>
-            <label class='form-control-label'>City:</label>
-            <input type='text' class='form-control' ng-model='summary.insured.city_[$index]'>
-          </div>
-          <div class='form-group col-md-4'>
-            <label class='form-control-label'>State:</label>
-            <select class='form-control' ng-model='summary.insured.state_[$index]' ng-options='item for item in summary.states'>
-              <option value='' selected disabled>Please Choose...</option>
-            </select>
-          </div>
-          <div class='form-group col-md-2'>
-            <label class='form-control-label'>Zip:</label>
-            <input type='number' class='form-control' ng-model='summary.insured.zip_[$index]'>
-          </div>
-        </div>
-        <div class='form-row'>
-          <div class='form-group col-md-6'>
-            <label class='form-control-label'>Contact First Name:</label>
-            <input type='text' class='form-control' ng-model='summary.insured.contactFirstName_[$index]'>
-          </div>
-          <div class='form-group col-md-6'>
-            <label class='form-control-label'>Contact Last Name:</label>
-            <input type='text' class='form-control' ng-model='summary.insured.contactLastName_[$index]'>
-          </div>
-        </div>
-        <div class='form-row'>
-          <div class='form-group col-md-8'>
-            <label class='form-control-label'>Email:</label>
-            <input type='email' class='form-control' ng-model='summary.insured.email_[$index]'>
-          </div>
-          <div class='form-group col-md-4'>
-            <label class='form-control-label'>Phone #:</label>
-            <input type='number' class='form-control' ng-model='summary.insured.phone_[$index]'>
-          </div>
-        </div>
     </div>
-    <button ng-click='summary.something(summary.insured, summary.dogList)' class='btn btn-success'>Next</button>
-    
+    <button class='btn btn-default' ng-click='summary.something()' ng-if='summary.addInsured !==" " ? true : false'>Calculate</button>
   </section>
-
   <section ng-show='summary.addEdit'>
     <form class='form-horizontal'>
       <div class='form-group'>
